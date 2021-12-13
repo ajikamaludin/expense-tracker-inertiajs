@@ -15,4 +15,14 @@ class Category extends Model
         'description',
         'default_budget'
     ];
+
+    public function budgets()
+    {
+        return $this->hasMany(Budget::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

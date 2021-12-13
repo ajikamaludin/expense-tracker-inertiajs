@@ -30,8 +30,8 @@ export default function Transaction(props) {
               <div className="w-full md:w-2/3 px-6 md:pr-8">
                 <div className="card bg-white">
                   <div className="card-body">
-                    <div class="overflow-x-auto">
-                      <table class="table w-full table-zebra">
+                    <div className="overflow-x-auto">
+                      <table className="table w-full table-zebra">
                         <thead>
                           <tr>
                             <th></th> 

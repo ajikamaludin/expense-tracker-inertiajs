@@ -10,4 +10,19 @@ class ExpenseController extends Controller
     {
         return inertia('Transaction');
     }
+
+    public function store()
+    {
+        //
+    }
+
+    public function update()
+    {
+        //
+    }
+
+    public function destroy()
+    {
+        //
+    }
 }

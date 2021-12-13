@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import Dropdown from '@/Components/Dropdown';
+import { ToastContainer } from 'react-toastify';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
@@ -22,13 +21,13 @@ export default function Authenticated({ header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('transactions')}>
+                                <NavLink href={route('transactions')} active={route().current('transactions')}>
                                     Transaction
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                <NavLink href={route('categories')} active={route().current('categories')}>
                                     Category
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                <NavLink href={route('summary')} active={route().current('summary')}>
                                     Summary
                                 </NavLink>
                             </div>
@@ -62,13 +61,13 @@ export default function Authenticated({ header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('transactions')}>
+                        <ResponsiveNavLink href={route('transactions')} active={route().current('transactions')}>
                             Transaction
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ResponsiveNavLink href={route('transactions')} active={route().current('transactions')}>
                             Category
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ResponsiveNavLink href={route('summary')} active={route().current('summary')}>
                             Summary
                         </ResponsiveNavLink>
                     </div>
@@ -82,6 +81,18 @@ export default function Authenticated({ header, children }) {
             )}
 
             <main>{children}</main>
+            <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                theme='colored'
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 }
