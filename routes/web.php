@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SummaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,7 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('categori
 Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
-Route::get('/summary', function () {
-})->name('summary');
+Route::get('/summary', SummaryController::class)->name('summary');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

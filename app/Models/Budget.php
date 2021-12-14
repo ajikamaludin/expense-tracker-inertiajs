@@ -19,4 +19,9 @@ class Budget extends Model
         'total_used',
         'remain'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class)->withTrashed();
+    }
 }

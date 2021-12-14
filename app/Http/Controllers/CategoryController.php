@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $category->budgets()->create([
             'budget' => $request->amount,
             'start_date' => now()->toDateString(),
-            'end_date' => now()->endOfMonth()->toDateString(),
+            'end_date' => null,
         ]);
 
         return redirect()->route('categories');
@@ -51,7 +51,7 @@ class CategoryController extends Controller
             'default_budget' => $request->amount
         ]);
 
-        $budget = $category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString());
+        $budget = $category->budgets()->whereDate('end_date', null);
         $budget->update(['budget' => $request->amount]);
 
         return redirect()->route('categories');

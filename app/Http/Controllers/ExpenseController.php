@@ -31,15 +31,16 @@ class ExpenseController extends Controller
         DB::beginTransaction();
         $transaction = Transaction::create($request->input());
 
-        if ($request->is_income == 0 && $request->income_type == 0) { //total expense nambah
-            $budget = $transaction->category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString())->first();
-            $budget->update(['total_used' => $budget->total_used + $request->amount]);
+        if ($request->is_income == 0) {
+            $budget = $transaction->category->budgets()->where('end_date', null)->first();
+            if ($request->income_type == 0) {
+                $budget->update(['total_used' => $budget->total_used + $request->amount]);
+            }
+            if ($request->income_type == 1) {
+                $budget->update(['remain' => $budget->remain + $request->amount]);
+            }
         }
 
-        if ($request->is_income == 0 && $request->income_type == 1) { //total remain nambah
-            $budget = $transaction->category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString())->first();
-            $budget->update(['remain' => $budget->remain + $request->amount]);
-        }
         DB::commit();
 
         return redirect()->route('transactions');
@@ -58,27 +59,27 @@ class ExpenseController extends Controller
 
         DB::beginTransaction();
         // return when it create
-        if ($transaction->is_income == 0 && $transaction->income_type == 0) { //total expense nambah
-            $budget = $transaction->category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString())->first();
-            $budget->update(['total_used' => $budget->total_used - $transaction->amount]);
-        }
-
-        if ($transaction->is_income == 0 && $transaction->income_type == 1) { //total remain nambah
-            $budget = $transaction->category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString())->first();
-            $budget->update(['remain' => $budget->remain - $transaction->amount]);
+        if ($transaction->is_income == 0) { // pasti ada
+            $budget = $transaction->category->budgets()->where('end_date', null)->first();
+            if ($request->income_type == 0) {
+                $budget->update(['total_used' => $budget->total_used - $request->amount]);
+            }
+            if ($request->income_type == 1) {
+                $budget->update(['remain' => $budget->remain - $request->amount]);
+            }
         }
 
         $transaction->update($request->input());
 
         // add new
-        if ($request->is_income == 0 && $request->income_type == 0) { //total expense nambah
-            $budget = $transaction->category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString())->first();
-            $budget->update(['total_used' => $budget->total_used + $request->amount]);
-        }
-
-        if ($request->is_income == 0 && $request->income_type == 1) { //total remain nambah
-            $budget = $transaction->category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString())->first();
-            $budget->update(['remain' => $budget->remain + $request->amount]);
+        if ($transaction->is_income == 0) {
+            $budget = $transaction->category->budgets()->where('end_date', null)->first();
+            if ($request->income_type == 0) {
+                $budget->update(['total_used' => $budget->total_used + $request->amount]);
+            }
+            if ($request->income_type == 1) {
+                $budget->update(['remain' => $budget->remain + $request->amount]);
+            }
         }
         DB::commit();
 
@@ -89,14 +90,14 @@ class ExpenseController extends Controller
     {
         DB::beginTransaction();
         // return when it create
-        if ($transaction->is_income == 0 && $transaction->income_type == 0) { //total expense nambah
-            $budget = $transaction->category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString())->first();
-            $budget->update(['total_used' => $budget->total_used - $transaction->amount]);
-        }
-
-        if ($transaction->is_income == 0 && $transaction->income_type == 1) { //total remain nambah
-            $budget = $transaction->category->budgets()->whereDate('end_date', now()->endOfMonth()->toDateString())->first();
-            $budget->update(['remain' => $budget->remain - $transaction->amount]);
+        if ($transaction->is_income == 0 && $transaction->category->deleted_at == null) { // pasti ada
+            $budget = $transaction->category->budgets()->where('end_date', null)->first();
+            if ($transaction->income_type == 0) {
+                $budget->update(['total_used' => $budget->total_used - $transaction->amount]);
+            }
+            if ($transaction->income_type == 1) {
+                $budget->update(['remain' => $budget->remain - $transaction->amount]);
+            }
         }
 
         $transaction->delete();

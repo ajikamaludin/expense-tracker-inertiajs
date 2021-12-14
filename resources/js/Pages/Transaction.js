@@ -23,11 +23,20 @@ export default function Transaction(props) {
   }
 
   const toggleIncome = () => {
-    setData('is_income', data.is_income === 0 ? 1 : 0)
+    setData({
+      ...data,
+      category_id: '',
+      is_income: data.is_income === 0 ? 1 : 0
+    })
   }
 
   const handleSelectedcategory = (e) => {
-    setData('category_id', e.target.value)
+    const category = categories.find(cat => +cat.id === +e.target.value)
+    setData({
+      ...data,
+      description: category.description,
+      category_id: e.target.value
+    })
   }
 
   const handleChange = (e) => {
@@ -118,7 +127,7 @@ export default function Transaction(props) {
                   </div>
                   <div className="form-control">
                     <label className="cursor-pointer label">
-                      <input type="checkbox" checked={data.is_income === 1 ? true : false} onChange={toggleIncome}/>
+                      <input type="checkbox" checked={data.is_income === 1 ? true : false} onChange={toggleIncome} className="checkbox checkbox-primary"/>
                       <span className="label-text font-bold">Income</span> 
                     </label>
                   </div>
