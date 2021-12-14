@@ -18,4 +18,9 @@ class Transaction extends Model
         'is_income',
         'income_type',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

@@ -10,7 +10,7 @@ class CategoryController extends Controller
     public function index()
     {
         return inertia('Category', [
-            'categories' => Category::orderBy('created_at', 'desc')->paginate(5)
+            'categories' => Category::orderBy('created_at', 'desc')->paginate(10)
         ]);
     }
 

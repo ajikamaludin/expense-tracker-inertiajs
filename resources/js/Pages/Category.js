@@ -3,6 +3,7 @@ import Pagination from '@/Components/Pagination'
 import Authenticated from '@/Layouts/Authenticated';
 import { toast } from 'react-toastify';
 import { Head, useForm } from '@inertiajs/inertia-react';
+import { formatIDR } from '@/utils';
 
 export default function Category(props) {
   const [category, setCategory] = useState(null)
@@ -159,7 +160,7 @@ export default function Category(props) {
                             <th>{category.id}</th> 
                             <td>{category.name}</td> 
                             <td>{category.description}</td> 
-                            <td>{category.default_budget}</td>
+                            <td>{formatIDR(category.default_budget)}</td>
                             <td>
                               <div className="btn btn-warning mx-1" onClick={() => handleEdit(category)}>Edit</div>
                               <div className="btn btn-error mx-1" onClick={() => handleDelete(category)}>Delete</div>
