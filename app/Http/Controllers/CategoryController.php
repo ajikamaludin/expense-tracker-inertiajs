@@ -51,7 +51,7 @@ class CategoryController extends Controller
             'default_budget' => $request->amount
         ]);
 
-        $budget = $category->budgets()->whereDate('end_date', null);
+        $budget = $category->budgets()->where('end_date', null);
         $budget->update(['budget' => $request->amount]);
 
         return redirect()->route('categories');
