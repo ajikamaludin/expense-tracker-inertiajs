@@ -12,6 +12,7 @@
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
+        "maatwebsite/excel": "^3.1",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

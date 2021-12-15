@@ -29,6 +29,7 @@ Route::put('/categories/{category}', [CategoryController::class, 'update'])->nam
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 Route::get('/summary', SummaryController::class)->name('summary');
+Route::get('/close', [SummaryController::class, 'close'])->name('close');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

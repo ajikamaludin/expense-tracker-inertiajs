@@ -80,7 +80,7 @@ export default function Authenticated({ header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main className='max-w-7xl mx-auto'>{children}</main>
             <ToastContainer 
                 position="top-right"
                 autoClose={5000}

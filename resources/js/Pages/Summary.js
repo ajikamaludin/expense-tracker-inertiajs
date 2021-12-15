@@ -70,12 +70,12 @@ export default function Summary(props) {
                       </tbody>
                     </table>
                   </div>
-                  <Pagination links={links} />
+                  <Pagination links={links}/>
                 </div>
               </div>
             </div>
           </div>
-        <ModalClosing/>
+        <ModalClosing csrf_token={props.csrf_token}/>
       </Authenticated>
   );
 }

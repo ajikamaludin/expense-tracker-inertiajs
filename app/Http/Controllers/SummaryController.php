@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Exports\SummaryExport;
 use App\Models\Transaction;
 use App\Models\Budget;
 use Illuminate\Http\Request;
@@ -20,12 +22,42 @@ class SummaryController extends Controller
 
     public function close(Request $request)
     {
-        $request->validate([
-            'is_rolling' => 'required|in:0,1'
+        $content = (new SummaryExport)->download('summary.csv', \Maatwebsite\Excel\Excel::CSV, [
+            'Content-Type' => 'text/csv',
         ]);
 
+        DB::beginTransaction();
+
+        $budgets = Budget::where('end_date', null)->get();
+        Budget::where('end_date', null)->update(['end_date' => now()->toDateString()]);
+
         if ($request->is_rolling == 1) {
-            // rolling is count
+            foreach ($budgets as $budget) {
+                $rollover = ($budget->budget + $budget->rollover) - ($budget->total_used + $budget->remain);
+                $rollover = $rollover > 0 ? $rollover : 0;
+                Budget::create([
+                    'category_id' => $budget->category_id,
+                    'budget' => $budget->budget,
+                    'rollover' => $rollover,
+                    'start_date' => now()->toDateString(),
+                    'end_date' => null,
+                ]);
+            }
+        } else {
+            foreach ($budgets as $budget) {
+                Budget::create([
+                    'category_id' => $budget->category_id,
+                    'budget' => $budget->budget,
+                    'start_date' => now()->toDateString(),
+                    'end_date' => null,
+                ]);
+            }
         }
+
+        Transaction::where('date', '!=', null)->delete();
+
+        DB::commit();
+
+        return $content;
     }
 }
