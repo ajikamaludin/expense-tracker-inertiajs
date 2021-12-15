@@ -30,9 +30,3 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])-
 
 Route::get('/summary', SummaryController::class)->name('summary');
 Route::get('/close', [SummaryController::class, 'close'])->name('close');
-
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// require __DIR__.'/auth.php';

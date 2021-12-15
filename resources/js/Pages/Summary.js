@@ -75,7 +75,7 @@ export default function Summary(props) {
               </div>
             </div>
           </div>
-        <ModalClosing csrf_token={props.csrf_token}/>
+        <ModalClosing />
       </Authenticated>
   );
 }
