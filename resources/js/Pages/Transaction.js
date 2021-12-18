@@ -4,11 +4,13 @@ import Authenticated from '@/Layouts/Authenticated';
 import { Head, useForm } from '@inertiajs/inertia-react';
 import { toast } from 'react-toastify';
 import moment from 'moment';
+import NumberFormat from 'react-number-format';
 import { formatIDR } from '@/utils';
 
 export default function Transaction(props) {
   const { categories, transactions } = props
   const [transaction, setTransaction] = useState(null)
+  const [showForm, setShowForm] = useState(false)
   const { data, setData, errors, post, put, processing, delete: destroy } = useForm({
     category_id: '',
     description: '',
@@ -18,6 +20,15 @@ export default function Transaction(props) {
     income_type: 0
   })
 
+  const toggleForm = (transaction = null) => {
+    setShowForm(!showForm)
+    if(transaction !== null) {
+      handleEdit(transaction)
+    }else{
+      handleReset()
+    }
+  }
+
   const toggleCashType = () => {
     setData('income_type', data.income_type === 0 ? 1 : 0)
   }
@@ -26,7 +37,9 @@ export default function Transaction(props) {
     setData({
       ...data,
       category_id: '',
-      is_income: data.is_income === 0 ? 1 : 0
+      description: '',
+      is_income: data.is_income === 0 ? 1 : 0,
+      income_type: 1,
     })
   }
 
@@ -84,6 +97,7 @@ export default function Transaction(props) {
     if(transaction !== null) {
       put(route('transactions.update', transaction), {
         onSuccess: () => Promise.all([
+          toggleForm(),
           handleReset(),
           toast.success('The Data has been changed')
         ])})
@@ -91,6 +105,7 @@ export default function Transaction(props) {
     }
     post(route('transactions.store'), {
       onSuccess: () => Promise.all([
+        toggleForm(),
         handleReset(),
         toast.success('Data has been saved')
       ])
@@ -104,120 +119,22 @@ export default function Transaction(props) {
       >
           <Head title="Transaction" />
 
-          <div className="flex flex-col space-y-2 md:space-y-0 md:flex-row py-12">
-            <div className="w-full md:w-1/3 px-6 md:pl-8">
+          <div className="flex flex-col space-y-2 py-12">
+            <div className="w-full px-6 md:pr-8">
               <div className="card bg-white">
                 <div className="card-body">
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Date</span>
-                    </label> 
-                    <input 
-                      type="date"
-                      className={`input input-bordered ${errors.date ? 'input-error' : ''}`} 
-                      id="date" 
-                      value={data.date} 
-                      onChange={handleChange}
-                    />
-                    <label className="label">
-                        <span className="label-text-alt">
-                            {errors.date}
-                        </span>
-                    </label>
-                  </div>
-                  <div className="form-control">
-                    <label className="cursor-pointer label">
-                      <input type="checkbox" checked={data.is_income === 1 ? true : false} onChange={toggleIncome} className="checkbox checkbox-primary"/>
-                      <span className="label-text font-bold">Income</span> 
-                    </label>
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Category</span>
-                    </label>
-                    <select 
-                      className={`select select-bordered w-full max-w-xs ${errors.category_id && 'select-error'}`} 
-                      id="category_id" 
-                      onChange={handleSelectedcategory} 
-                      disabled={data.is_income === 1}
-                      value={data.category_id}
-                    >
-                      <option disabled="disabled" selected={'' === data.category_id} value=''>Choose your category</option> 
-                      {categories.map(category => ( 
-                          <option key={category.id} value={category.id} selected={category.id === data.category_id}>{category.name}</option>
-                        )
-                      )}
-                    </select>
-                    <label className="label">
-                        <span className="label-text-alt">
-                            {errors.category_id}
-                        </span>
-                    </label>
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Description</span>
-                    </label> 
-                    <input 
-                      type="text" 
-                      placeholder="Description" 
-                      className={`input input-bordered ${errors.description ? 'input-error' : ''}`} 
-                      id="description" 
-                      value={data.description} 
-                      onChange={handleChange}
-                    />
-                    <label className="label">
-                        <span className="label-text-alt">
-                            {errors.description}
-                        </span>
-                    </label>
-                  </div>
-                  <div className="form-control">
-                    <label className="cursor-pointer label">
-                      <span className="label-text font-bold">{data.income_type === 0 ? 'Cash Out' : 'Cash In'}</span> 
-                      <input type="checkbox" checked={data.income_type === 0 ? true : false} className="toggle" onChange={toggleCashType}/>
-                    </label>
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Amount</span>
-                    </label> 
-                    <input 
-                      type="number"
-                      placeholder="Amount"
-                      className={`input input-bordered ${errors.amount ? 'input-error' : ''}`} 
-                      id="amount" 
-                      value={data.amount} 
-                      onChange={handleChange}
-                    />
-                    <label className="label">
-                        <span className="label-text-alt">
-                            {errors.amount}
-                        </span>
-                    </label>
-                  </div>
-                  <div className="card-actions">
-                    <button className={`btn btn-primary ${processing && 'animate-spin'}`} onClick={handleSubmit} disabled={processing}>Add</button>
-                    <button className="btn btn-secondary" onClick={handleReset} disabled={processing}>Clear</button>
-                  </div>
-                </div>
-              </div> 
-            </div>
-
-            <div className="w-full md:w-2/3 px-6 md:pr-8">
-              <div className="card bg-white">
-                <div className="card-body">
+                  <div className="btn btn-outline max-w-min my-2" onClick={() => toggleForm()}>Tambah</div>
                   <div className="overflow-x-auto">
                     <table className="table w-full table-zebra">
                       <thead>
                         <tr>
                           <th>Date</th> 
-                          <th>Income</th> 
-                          <th>Category</th>
-                          <th>Cash In/Out</th>
+                          <th>Type</th> 
+                          <th>Category Name</th>
+                          <th className="w-32">Cash In/Out</th>
                           <th>Description</th>
                           <th>Amount</th>
-                          <th></th>
+                          <th className="w-52"></th>
                         </tr>
                       </thead> 
                       <tbody className={processing ? "opacity-70" : ""}>
@@ -242,7 +159,7 @@ export default function Transaction(props) {
                             <td>{transaction.description}</td>
                             <td>{formatIDR(transaction.amount)}</td>
                             <td>
-                              <div className="btn btn-warning mx-1" onClick={() => handleEdit(transaction)}>Edit</div>
+                              <div className="btn btn-warning mx-1" onClick={() => toggleForm(transaction)}>Edit</div>
                               <div className="btn btn-error mx-1" onClick={() => handleDelete(transaction)}>Delete</div>
                             </td>
                           </tr>
@@ -254,7 +171,103 @@ export default function Transaction(props) {
                 </div>
               </div>
             </div>
-              
+          </div>
+          <div id="create-modal" className="modal" style={showForm ? {opacity: 1, pointerEvents: 'auto', visibility: 'visible'} : {}}>
+            <div className="modal-box">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Date</span>
+                </label> 
+                <input 
+                  type="date"
+                  className={`input input-bordered ${errors.date ? 'input-error' : ''}`} 
+                  id="date" 
+                  value={data.date} 
+                  onChange={handleChange}
+                />
+                <label className="label">
+                    <span className="label-text-alt">
+                        {errors.date}
+                    </span>
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="cursor-pointer label">
+                  <input type="checkbox" checked={data.is_income === 1 ? true : false} onChange={toggleIncome} className="checkbox checkbox-primary"/>
+                  <span className="label-text font-bold">Income</span> 
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Category</span>
+                </label>
+                <select 
+                  className={`select select-bordered w-full ${errors.category_id && 'select-error'}`} 
+                  id="category_id" 
+                  onChange={handleSelectedcategory} 
+                  disabled={data.is_income === 1}
+                  value={data.category_id}
+                >
+                  <option disabled="disabled" selected={'' === data.category_id} value=''>Choose your category</option> 
+                  {categories.map(category => ( 
+                      <option key={category.id} value={category.id} selected={category.id === data.category_id}>{category.name}</option>
+                    )
+                  )}
+                </select>
+                <label className="label">
+                    <span className="label-text-alt">
+                        {errors.category_id}
+                    </span>
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Description</span>
+                </label> 
+                <input 
+                  type="text" 
+                  placeholder="Description" 
+                  className={`input input-bordered ${errors.description ? 'input-error' : ''}`} 
+                  id="description" 
+                  value={data.description} 
+                  onChange={handleChange}
+                />
+                <label className="label">
+                    <span className="label-text-alt">
+                        {errors.description}
+                    </span>
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="cursor-pointer label">
+                  <span className="label-text font-bold">{data.income_type === 0 ? 'Cash Out' : 'Cash In'}</span> 
+                  <input type="checkbox" checked={data.income_type === 0 ? true : false} disabled={data.is_income === 1} className="toggle" onChange={toggleCashType}/>
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Amount</span>
+                </label>
+                <NumberFormat
+                  thousandSeparator={true}
+                  className={`input input-bordered ${errors.amount ? 'input-error' : ''}`}
+                  value={data.amount}
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  onValueChange={({value}) => setData('amount', value)}
+                />
+                <label className="label">
+                    <span className="label-text-alt">
+                        {errors.amount}
+                    </span>
+                </label>
+              </div>
+              <div className="modal-action">
+                <button className={`btn btn-primary ${processing && 'animate-spin'}`} onClick={handleSubmit} disabled={processing}>Add</button>
+                <button className="btn btn-secondary" onClick={handleReset} disabled={processing}>Clear</button>
+                <button className="btn btn-outline btn-secondary" onClick={() => toggleForm()} disabled={processing}>Close</button>
+              </div>
+            </div>
           </div>
       </Authenticated>
   );

@@ -10,14 +10,14 @@ class CategoryController extends Controller
     public function index()
     {
         return inertia('Category', [
-            'categories' => Category::orderBy('created_at', 'desc')->paginate(10)
+            'categories' => Category::orderBy('created_at', 'asc')->paginate(10)
         ]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|unique:categories,name|max:255',
             'description' => 'required|string|max:255',
             'amount' => 'required|numeric|max:999999999|min:1'
         ]);
@@ -32,6 +32,7 @@ class CategoryController extends Controller
             'budget' => $request->amount,
             'start_date' => now()->toDateString(),
             'end_date' => null,
+            'remain' => $request->amount
         ]);
 
         return redirect()->route('categories');
@@ -48,7 +49,7 @@ class CategoryController extends Controller
         $category->update([
             'name' => $request->name,
             'description' => $request->description,
-            'default_budget' => $request->amount
+            'default_budget' => $request->amount,
         ]);
 
         $budget = $category->budgets()->where('end_date', null);

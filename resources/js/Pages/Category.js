@@ -3,6 +3,7 @@ import Pagination from '@/Components/Pagination'
 import Authenticated from '@/Layouts/Authenticated';
 import { toast } from 'react-toastify';
 import { Head, useForm } from '@inertiajs/inertia-react';
+import NumberFormat from 'react-number-format';
 import { formatIDR } from '@/utils';
 
 export default function Category(props) {
@@ -80,7 +81,7 @@ export default function Category(props) {
                 <div className="card-body">
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text">Name</span>
+                      <span className="label-text">Category Name</span>
                     </label> 
                     <input 
                       type="text" 
@@ -117,14 +118,14 @@ export default function Category(props) {
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Amount</span>
-                    </label> 
-                    <input 
-                      type="number"
-                      placeholder="Amount"
-                      className={`input input-bordered ${errors.amount ? 'input-error' : ''}`} 
-                      id="amount" 
-                      value={data.amount} 
-                      onChange={handleChange}
+                    </label>
+                    <NumberFormat
+                      thousandSeparator={true}
+                      className={`input input-bordered ${errors.amount ? 'input-error' : ''}`}
+                      value={data.amount}
+                      thousandSeparator="."
+                      decimalSeparator=","
+                      onValueChange={({value}) => setData('amount', value)}
                     />
                     <label className="label">
                         <span className="label-text-alt">
@@ -148,10 +149,10 @@ export default function Category(props) {
                       <thead>
                         <tr>
                           <th></th> 
-                          <th>Name</th> 
+                          <th className="w-36">Category Name</th> 
                           <th>Description</th> 
                           <th>Amount</th>
-                          <th></th>
+                          <th className="w-52"></th>
                         </tr>
                       </thead> 
                       <tbody className={processing ? "opacity-70" : ""}>

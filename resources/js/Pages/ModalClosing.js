@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useForm } from '@inertiajs/inertia-react';
-
+import { toast } from 'react-toastify';
+import { Inertia } from '@inertiajs/inertia'
 
 export default function ModalClosing() {
   const {data, setData} = useForm({
@@ -16,10 +17,7 @@ export default function ModalClosing() {
     }
     setLoading(true)
     fetch(`${route('close')}?is_rolling=${data.is_rolling}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'text/csv',
-      },
+      method: 'GET'
     })
     .then((response) => response.blob())
     .then((blob) => {
@@ -28,18 +26,24 @@ export default function ModalClosing() {
       );
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `summary.csv`);
+      link.setAttribute('download', `summary.xlsx`);
       document.body.appendChild(link);
       link.click();
       link.parentNode.removeChild(link);
     })
-    .finally(() => setLoading(false));
+    .finally(() => {
+      toast.success('berhasil mendownload, silahkan klik close')
+      setLoading(false)
+      setTimeout(() => {
+        Inertia.visit(route('summary'))
+      }, 3000)
+    });
   }
 
   return (
     <div id="my-modal" className="modal">
       <div className="modal-box">
-        <h1 className="font-bold text-2xl pb-8">Form Closing</h1>
+        <h1 className="font-bold text-2xl pb-8">Monthly Closing</h1>
         <div className="form-control py-4 px-6">
           <label className="cursor-pointer label">
             <span className="label-text">Roll forward Budget per Category</span> 

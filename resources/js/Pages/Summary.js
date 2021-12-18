@@ -33,7 +33,7 @@ export default function Summary(props) {
             </div>
             <div className="card bg-white w-full md:w-1/4">
               <div className="card-body">
-                <a href="#my-modal"className="btn btn-primary">Form Closing</a>
+                <a href="#my-modal"className="btn btn-primary">monthly closing</a>
               </div>
             </div>
           </div>
@@ -56,9 +56,9 @@ export default function Summary(props) {
                         </tr>
                       </thead> 
                       <tbody>
-                        {budgets?.map(budget => (
+                        {budgets?.map((budget, index) => (
                           <tr key={budget.id}>
-                            <th>{budget.id}</th> 
+                            <th>{index+1}</th> 
                             <td>{budget?.category?.name}</td> 
                             <td>{budget?.category?.description}</td> 
                             <td>{formatIDR(budget.budget)}</td>

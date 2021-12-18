@@ -22,9 +22,7 @@ class SummaryController extends Controller
 
     public function close(Request $request)
     {
-        $content = (new SummaryExport)->download('summary.csv', \Maatwebsite\Excel\Excel::CSV, [
-            'Content-Type' => 'text/csv',
-        ]);
+        $content = (new SummaryExport)->download('summary.xlsx', \Maatwebsite\Excel\Excel::XLSX);
 
         DB::beginTransaction();
 
@@ -33,12 +31,13 @@ class SummaryController extends Controller
 
         if ($request->is_rolling == 1) {
             foreach ($budgets as $budget) {
-                $rollover = ($budget->budget + $budget->rollover) - ($budget->total_used + $budget->remain);
+                $rollover = ($budget->budget + $budget->rollover) - ($budget->total_used);
                 $rollover = $rollover > 0 ? $rollover : 0;
                 Budget::create([
                     'category_id' => $budget->category_id,
                     'budget' => $budget->budget,
                     'rollover' => $rollover,
+                    'remain' => $budget->budget + $rollover,
                     'start_date' => now()->toDateString(),
                     'end_date' => null,
                 ]);
@@ -48,6 +47,7 @@ class SummaryController extends Controller
                 Budget::create([
                     'category_id' => $budget->category_id,
                     'budget' => $budget->budget,
+                    'remain' => $budget->budget,
                     'start_date' => now()->toDateString(),
                     'end_date' => null,
                 ]);

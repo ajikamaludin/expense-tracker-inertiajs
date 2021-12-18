@@ -21,11 +21,11 @@ export default function Authenticated({ header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('transactions')} active={route().current('transactions')}>
-                                    Transaction
-                                </NavLink>
                                 <NavLink href={route('categories')} active={route().current('categories')}>
                                     Category
+                                </NavLink>
+                                <NavLink href={route('transactions')} active={route().current('transactions')}>
+                                    Transaction
                                 </NavLink>
                                 <NavLink href={route('summary')} active={route().current('summary')}>
                                     Summary
@@ -62,10 +62,10 @@ export default function Authenticated({ header, children }) {
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('transactions')} active={route().current('transactions')}>
-                            Transaction
+                            Category
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('transactions')} active={route().current('transactions')}>
-                            Category
+                            Transaction
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('summary')} active={route().current('summary')}>
                             Summary
