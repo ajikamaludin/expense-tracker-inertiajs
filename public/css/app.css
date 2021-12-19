@@ -3039,26 +3039,14 @@ html {
 .w-20 {
 	width: 5rem;
 }
-.w-80 {
-	width: 20rem;
-}
-.w-56 {
-	width: 14rem;
+.w-36 {
+	width: 9rem;
 }
 .w-52 {
 	width: 13rem;
 }
 .w-32 {
 	width: 8rem;
-}
-.w-36 {
-	width: 9rem;
-}
-.w-60 {
-	width: 15rem;
-}
-.w-72 {
-	width: 18rem;
 }
 .max-w-xl {
 	max-width: 36rem;
