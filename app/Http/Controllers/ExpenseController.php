@@ -33,10 +33,16 @@ class ExpenseController extends Controller
 
         if ($request->is_income == 0) {
             $budget = $transaction->category->budgets()->where('end_date', null)->first();
-            $budget->update([
-                'total_used' => $budget->total_used + $request->amount,
-                'remain' => ($budget->budget + $budget->rollover) - ($budget->total_used + $request->amount)
-            ]);
+            $budget->update(['total_used' => $budget->total_used + $request->amount]);
+            if ($request->income_type == 1) {
+                $budget->update([
+                    'remain' => $budget->remain + $request->amount
+                ]);
+            } else {
+                $budget->update([
+                    'remain' => $budget->remain - $request->amount
+                ]);
+            }
         }
 
         DB::commit();
@@ -59,10 +65,16 @@ class ExpenseController extends Controller
         // return when it create
         if ($transaction->is_income == 0) { // pasti ada
             $budget = $transaction->category->budgets()->where('end_date', null)->first();
-            $budget->update([
-                'total_used' => $budget->total_used - $transaction->amount,
-                'remain' => ($budget->budget + $budget->rollover) + ($budget->total_used - $transaction->amount)
-            ]);
+            $budget->update(['total_used' => $budget->total_used - $transaction->amount]);
+            if ($transaction->income_type == 1) {
+                $budget->update([
+                    'remain' => $budget->remain - $transaction->amount
+                ]);
+            } else {
+                $budget->update([
+                    'remain' => $budget->remain + $transaction->amount
+                ]);
+            }
         }
 
         $transaction->update($request->input());
@@ -70,10 +82,16 @@ class ExpenseController extends Controller
         // add new
         if ($transaction->is_income == 0) {
             $budget = $transaction->category->budgets()->where('end_date', null)->first();
-            $budget->update([
-                'total_used' => $budget->total_used + $request->amount,
-                'remain' => ($budget->budget + $budget->rollover) - ($budget->total_used + $request->amount)
-            ]);
+            $budget->update(['total_used' => $budget->total_used + $request->amount]);
+            if ($request->income_type == 1) {
+                $budget->update([
+                    'remain' => $budget->remain + $request->amount
+                ]);
+            } else {
+                $budget->update([
+                    'remain' => $budget->remain - $request->amount
+                ]);
+            }
         }
         DB::commit();
 
@@ -86,10 +104,16 @@ class ExpenseController extends Controller
         // return when it create
         if ($transaction->is_income == 0 && $transaction->category->deleted_at == null) { // pasti ada
             $budget = $transaction->category->budgets()->where('end_date', null)->first();
-            $budget->update([
-                'total_used' => $budget->total_used - $transaction->amount,
-                'remain' => ($budget->budget + $budget->rollover) + ($budget->total_used - $transaction->amount)
-            ]);
+            $budget->update(['total_used' => $budget->total_used - $transaction->amount]);
+            if ($transaction->income_type == 1) {
+                $budget->update([
+                    'remain' => $budget->remain - $transaction->amount
+                ]);
+            } else {
+                $budget->update([
+                    'remain' => $budget->remain + $transaction->amount
+                ]);
+            }
         }
 
         $transaction->delete();

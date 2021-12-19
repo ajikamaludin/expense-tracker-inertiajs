@@ -123,7 +123,7 @@ export default function Transaction(props) {
             <div className="w-full px-6 md:pr-8">
               <div className="card bg-white">
                 <div className="card-body">
-                  <div className="btn btn-outline max-w-min my-2" onClick={() => toggleForm()}>Tambah</div>
+                  <div className="btn btn-secondary max-w-min my-2" onClick={() => toggleForm()}>Add</div>
                   <div className="overflow-x-auto">
                     <table className="table w-full table-zebra">
                       <thead>

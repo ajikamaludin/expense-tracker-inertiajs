@@ -47,7 +47,7 @@ export default function Summary(props) {
                       <thead>
                         <tr>
                           <th></th> 
-                          <th>Category</th> 
+                          <th>Category Name</th> 
                           <th>Description</th> 
                           <th>Budget</th>
                           <th>Previous Budget</th>

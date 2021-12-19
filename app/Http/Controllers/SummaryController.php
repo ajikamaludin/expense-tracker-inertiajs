@@ -32,7 +32,6 @@ class SummaryController extends Controller
         if ($request->is_rolling == 1) {
             foreach ($budgets as $budget) {
                 $rollover = ($budget->budget + $budget->rollover) - ($budget->total_used);
-                $rollover = $rollover > 0 ? $rollover : 0;
                 Budget::create([
                     'category_id' => $budget->category_id,
                     'budget' => $budget->budget,

@@ -757,8 +757,8 @@ select {
 }
 
 :root {
-	background-color: hsla(var(--b1)/var(--tw-bg-opacity,1));
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	background-color: hsla(var(--b1) / var(--tw-bg-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity,1));
 }
 
 html {
@@ -1647,10 +1647,10 @@ html {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 	transition-duration: .15s;
 	transition-duration: .2s;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 	height: 1.25rem;
 	font-size: .875rem;
 	line-height: 1.25rem;
@@ -1660,17 +1660,17 @@ html {
 	padding-left: .563rem;
 	padding-right: .563rem;
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--n) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--n)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--n) / var(--tw-border-opacity, 1));
 	border-width: 1px;
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
-	border-radius: var(--rounded-badge,1.9rem);
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
+	border-radius: var(--rounded-badge, 1.9rem);
 }
 .btn {
 	border-color: transparent;
-	border-color: hsla(var(--n)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--n) / var(--tw-border-opacity, 1));
 	cursor: pointer;
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -1682,11 +1682,11 @@ html {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 	transition-duration: .15s;
 	transition-duration: .2s;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
-	border-radius: var(--rounded-btn,.5rem);
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+	border-radius: var(--rounded-btn, .5rem);
 	height: 3rem;
 	font-size: .875rem;
 	line-height: 1.25rem;
@@ -1696,15 +1696,15 @@ html {
 	min-height: 3rem;
 	font-weight: 600;
 	text-transform: uppercase;
-	text-transform: var(--btn-text-case,uppercase);
-	border-width: var(--border-btn,1px);
-	-webkit-animation: button-pop var(--animation-btn,.25s) ease-out;
-	animation: button-pop var(--animation-btn,.25s) ease-out;
+	text-transform: var(--btn-text-case, uppercase);
+	border-width: var(--border-btn, 1px);
+	-webkit-animation: button-pop var(--animation-btn, .25s) ease-out;
+	animation: button-pop var(--animation-btn, .25s) ease-out;
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--n) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
 }
 .btn:focus {
 	outline: 2px solid transparent;
@@ -1714,11 +1714,11 @@ html {
 	pointer-events: none;
 	--tw-bg-opacity: 1;
 	--tw-bg-opacity: 0.2;
-	background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--n) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 0;
 	--tw-text-opacity: 1;
 	--tw-text-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .btn.loading,.btn.loading:hover {
 	pointer-events: none;
@@ -1774,7 +1774,7 @@ html {
 	flex-direction: column;
 	overflow: hidden;
 	position: relative;
-	border-radius: var(--rounded-box,1rem);
+	border-radius: var(--rounded-box, 1rem);
 }
 .card:focus {
 	outline: 2px solid transparent;
@@ -1784,7 +1784,7 @@ html {
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 auto;
-	padding: var(--padding-card,2rem);
+	padding: var(--padding-card, 2rem);
 }
 .card figure,.card figure>* {
 	width: 100%;
@@ -1806,10 +1806,10 @@ html {
 	position: relative;
 	content: "";
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--n) / var(--tw-bg-opacity, 1));
 	opacity: .75;
 	z-index: 10;
-	border-radius: var(--rounded-box,1rem);
+	border-radius: var(--rounded-box, 1rem);
 }
 .card.image-full:before,.card.image-full>* {
 	grid-column-start: 1;
@@ -1823,7 +1823,7 @@ html {
 .card.image-full>.card-body {
 	position: relative;
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
 	z-index: 20;
 }
 .checkbox:focus {
@@ -1846,10 +1846,10 @@ html {
 }
 .input {
 	flex-shrink: 1;
-	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 	transition-duration: .15s;
 	transition-duration: .2s;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 	height: 3rem;
 	font-size: .875rem;
 	line-height: 1.25rem;
@@ -1857,17 +1857,17 @@ html {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b1)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
 	--tw-border-opacity: 0;
-	border-color: hsla(var(--bc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
 	border-width: 1px;
-	border-radius: var(--rounded-btn,.5rem);
+	border-radius: var(--rounded-btn, .5rem);
 }
 .input:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsla(var(--bc)/.2);
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsla(var(--bc) / .2);
 }
 .input-group>*,.input-group>.input {
 	border-radius: 0;
@@ -1896,10 +1896,10 @@ html {
 .menu :where(li)>a,.menu :where(li)>span {
 	display: flex;
 	align-items: center;
-	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 	transition-duration: .15s;
 	transition-duration: .2s;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
 .menu :where(li)>a {
 	cursor: pointer;
@@ -1926,11 +1926,11 @@ html {
 	z-index: 999;
 	--tw-bg-opacity: 1;
 	--tw-bg-opacity: 0.4;
-	background-color: hsla(var(--nf)/var(--tw-bg-opacity,1));
-	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	background-color: hsla(var(--nf) / var(--tw-bg-opacity, 1));
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 	transition-duration: .15s;
 	transition-duration: .2s;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
 @media (min-width:640px) {
 
@@ -1943,8 +1943,8 @@ html {
 		--tw-scale-x: .9;
 		--tw-scale-y: .9;
 		--tw-translate-y: 0px;
-		border-bottom-left-radius: var(--rounded-box,1rem);
-		border-bottom-right-radius: var(--rounded-box,1rem);
+		border-bottom-left-radius: var(--rounded-box, 1rem);
+		border-bottom-right-radius: var(--rounded-box, 1rem);
 	}
 }
 .modal-open,.modal-toggle:checked+.modal,.modal:target {
@@ -1977,33 +1977,36 @@ html {
 	padding-right: 2.5rem;
 	min-height: 3rem;
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b1)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
 	--tw-border-opacity: 0;
-	border-color: hsla(var(--bc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
 	border-width: 1px;
 	font-weight: 600;
-	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 	transition-duration: .15s;
 	transition-duration: .2s;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
-	border-radius: var(--rounded-btn,.5rem);
-	background-image: linear-gradient(45deg,transparent 50%,currentColor 0),linear-gradient(135deg,currentColor 50%,transparent 0);
-	background-position: calc(100% - 20px) calc(1px + 50%),calc(100% - 16px) calc(1px + 50%);
-	background-size: 4px 4px,4px 4px;
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+	border-radius: var(--rounded-btn, .5rem);
+	background-image: linear-gradient(45deg, transparent 50%, currentColor 0),
+    linear-gradient(135deg, currentColor 50%, transparent 0);
+	background-position: calc(100% - 20px) calc(1px + 50%),
+    calc(100% - 16px) calc(1px + 50%);
+	background-size: 4px 4px,
+    4px 4px;
 	background-repeat: no-repeat;
 }
 .select:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsla(var(--bc)/.2);
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsla(var(--bc) / .2);
 }
 .select-disabled,.select[disabled] {
 	pointer-events: none;
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b2)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b2) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
 	cursor: not-allowed;
 	--tw-text-opacity: 0.2;
 }
@@ -2023,217 +2026,217 @@ html {
 }
 .btn .badge {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b1)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
 	border-color: transparent;
 	--tw-text-opacity: 1;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .btn .badge-outline {
 	background-color: transparent;
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--b2)/var(--tw-text-opacity,1));
+	color: hsla(var(--b2) / var(--tw-text-opacity, 1));
 }
 .btn-outline .badge {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--nf)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--nf) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-primary .badge {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--p) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-secondary .badge {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--s)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--s) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--s) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
+	color: hsla(var(--sc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-accent .badge {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--a)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--a) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--a)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--a) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--ac)/var(--tw-text-opacity,1));
+	color: hsla(var(--ac) / var(--tw-text-opacity, 1));
 }
 .btn-outline .badge.outline {
 	background-color: transparent;
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--nf)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--nf) / var(--tw-border-opacity, 1));
 }
 .btn-outline.btn-primary .badge-outline {
 	background-color: transparent;
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--p)/var(--tw-text-opacity,1));
+	color: hsla(var(--p) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-secondary .badge-outline {
 	background-color: transparent;
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--s) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--s)/var(--tw-text-opacity,1));
+	color: hsla(var(--s) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-accent .badge-outline {
 	background-color: transparent;
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--a)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--a) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--a)/var(--tw-text-opacity,1));
+	color: hsla(var(--a) / var(--tw-text-opacity, 1));
 }
 .btn-outline:hover .badge {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b2)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b2) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .btn-outline:hover .badge.outline {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-primary:hover .badge {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--pc)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--pc) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--pc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--pc) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--p)/var(--tw-text-opacity,1));
+	color: hsla(var(--p) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-primary:hover .badge.outline {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--pf)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--pf) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--pc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--pc) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-secondary:hover .badge {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sc)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--sc) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--sc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--sc) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--s)/var(--tw-text-opacity,1));
+	color: hsla(var(--s) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-secondary:hover .badge.outline {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--sf) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--sc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--sc) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
+	color: hsla(var(--sc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-accent:hover .badge {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--ac)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--ac) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--ac)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--ac) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--a)/var(--tw-text-opacity,1));
+	color: hsla(var(--a) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-accent:hover .badge.outline {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--af)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--af) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--ac)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--ac) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--ac)/var(--tw-text-opacity,1));
+	color: hsla(var(--ac) / var(--tw-text-opacity, 1));
 }
 .btn:active:focus,.btn:active:hover {
 	-webkit-animation: none;
 	animation: none;
-	transform: scale(var(--btn-focus-scale,.95));
+	transform: scale( var(--btn-focus-scale, .95) );
 }
 .btn-active,.btn:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--nf)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--nf) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--nf)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--nf) / var(--tw-border-opacity, 1));
 }
 .btn:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--nf));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--nf));
 }
 .btn-primary {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--p) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .btn-primary.btn-active,.btn-primary:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--pf)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--pf) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--pf)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--pf) / var(--tw-border-opacity, 1));
 }
 .btn-primary:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--p));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--p));
 }
 .btn-secondary {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--s)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--s) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--s) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
+	color: hsla(var(--sc) / var(--tw-text-opacity, 1));
 }
 .btn-secondary.btn-active,.btn-secondary:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--sf) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--sf)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--sf) / var(--tw-border-opacity, 1));
 }
 .btn-secondary:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--s));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--s));
 }
 .btn-warning {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--wa)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--wa) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--wa)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--wa) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--b2)/var(--tw-text-opacity,1));
+	color: hsla(var(--b2) / var(--tw-text-opacity, 1));
 }
 .btn-warning.btn-active,.btn-warning:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--wa)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--wa) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--wa)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--wa) / var(--tw-border-opacity, 1));
 }
 .btn-warning:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--wa));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--wa));
 }
 .btn-error {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--er)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--er) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--er)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--er) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--b2)/var(--tw-text-opacity,1));
+	color: hsla(var(--b2) / var(--tw-text-opacity, 1));
 }
 .btn-error.btn-active,.btn-error:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--er)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--er) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--er)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--er) / var(--tw-border-opacity, 1));
 }
 .btn-error:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--er));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--er));
 }
 .btn.glass.btn-active,.btn.glass:hover {
 	--glass-opacity: 25%;
@@ -2246,99 +2249,99 @@ html {
 	background-color: transparent;
 	border-color: currentColor;
 	--tw-text-opacity: 1;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .btn-outline:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--bc)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--bc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--b1)/var(--tw-text-opacity,1));
+	color: hsla(var(--b1) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-primary {
 	--tw-text-opacity: 1;
-	color: hsla(var(--p)/var(--tw-text-opacity,1));
+	color: hsla(var(--p) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-primary:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--pf)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--pf) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--pf)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--pf) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-secondary {
 	--tw-text-opacity: 1;
-	color: hsla(var(--s)/var(--tw-text-opacity,1));
+	color: hsla(var(--s) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-secondary:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--sf) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--sf)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--sf) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
+	color: hsla(var(--sc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-accent {
 	--tw-text-opacity: 1;
-	color: hsla(var(--a)/var(--tw-text-opacity,1));
+	color: hsla(var(--a) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-accent:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--af)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--af) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--af)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--af) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--ac)/var(--tw-text-opacity,1));
+	color: hsla(var(--ac) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-success {
 	--tw-text-opacity: 1;
-	color: hsla(var(--su)/var(--tw-text-opacity,1));
+	color: hsla(var(--su) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-success:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--su)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--su) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--su)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--su) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-info {
 	--tw-text-opacity: 1;
-	color: hsla(var(--in)/var(--tw-text-opacity,1));
+	color: hsla(var(--in) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-info:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--in)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--in) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--in)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--in) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-warning {
 	--tw-text-opacity: 1;
-	color: hsla(var(--wa)/var(--tw-text-opacity,1));
+	color: hsla(var(--wa) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-warning:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--wa)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--wa) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--wa)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--wa) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-error {
 	--tw-text-opacity: 1;
-	color: hsla(var(--er)/var(--tw-text-opacity,1));
+	color: hsla(var(--er) / var(--tw-text-opacity, 1));
 }
 .btn-outline.btn-error:hover {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--er)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--er) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--er)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--er) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+	color: hsla(var(--nc) / var(--tw-text-opacity, 1));
 }
 .btn.loading.btn-circle:before,.btn.loading.btn-square:before {
 	margin-right: 0;
@@ -2353,14 +2356,14 @@ html {
 }
 .btn-group>.btn-active,.btn-group>input[type=radio]:checked.btn {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--p) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .btn-group>.btn-active:focus-visible,.btn-group>input[type=radio]:checked.btn:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--p));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--p));
 }
 .btn-group>.btn:not(:first-child) {
 	border-top-left-radius: 0;
@@ -2374,7 +2377,7 @@ html {
 @-webkit-keyframes button-pop {
 
 	0% {
-		transform: scale(var(--btn-focus-scale,.95));
+		transform: scale( var(--btn-focus-scale, .95) );
 	}
 
 	40% {
@@ -2388,7 +2391,7 @@ html {
 @keyframes button-pop {
 
 	0% {
-		transform: scale(var(--btn-focus-scale,.95));
+		transform: scale( var(--btn-focus-scale, .95) );
 	}
 
 	40% {
@@ -2404,7 +2407,7 @@ html {
 }
 .card.bordered {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
 	border-width: 1px;
 }
 .card.compact .card-body {
@@ -2429,48 +2432,48 @@ html {
 	appearance: none;
 	--tw-border-opacity: 1;
 	--tw-border-opacity: 0.2;
-	border-color: hsla(var(--bc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
 	border-width: 1px;
 	cursor: pointer;
 	height: 1.5rem;
 	width: 1.5rem;
-	border-radius: var(--rounded-btn,.5rem);
+	border-radius: var(--rounded-btn, .5rem);
 }
 .checkbox:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--bc));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--bc));
 }
 .checkbox:checked {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--bc)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
 	background-repeat: no-repeat;
-	-webkit-animation: checkmark var(--animation-input,.2s) ease-in-out;
-	animation: checkmark var(--animation-input,.2s) ease-in-out;
-	background-image: linear-gradient(-45deg,transparent 65%,hsl(var(--chkbg)) 0),linear-gradient(45deg,transparent 75%,hsl(var(--chkbg)) 0),linear-gradient(-45deg,hsl(var(--chkbg)) 40%,transparent 0),linear-gradient(45deg,hsl(var(--chkbg)) 30%,hsl(var(--chkfg)) 0,hsl(var(--chkfg)) 40%,transparent 0),linear-gradient(-45deg,hsl(var(--chkfg)) 50%,hsl(var(--chkbg)) 0);
+	-webkit-animation: checkmark var(--animation-input, .2s)  ease-in-out;
+	animation: checkmark var(--animation-input, .2s)  ease-in-out;
+	background-image: linear-gradient(-45deg, transparent 65%, hsl(var(--chkbg)) 0), linear-gradient(45deg, transparent 75%, hsl(var(--chkbg)) 0), linear-gradient(-45deg, hsl(var(--chkbg)) 40%, transparent 0), linear-gradient(45deg, hsl(var(--chkbg)) 30%, hsl(var(--chkfg)) 0, hsl(var(--chkfg)) 40%, transparent 0), linear-gradient(-45deg, hsl(var(--chkfg)) 50%, hsl(var(--chkbg)) 0);
 }
 .checkbox-primary {
 	--chkbg: var(--p);
 	--chkfg: var(--pc);
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 }
 .checkbox-primary:hover {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 }
 .checkbox-primary:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--p));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--p));
 }
 .checkbox-primary:checked {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--p) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .checkbox:disabled {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--bc)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
 	border-color: transparent;
 	cursor: not-allowed;
 	opacity: .2;
@@ -2504,75 +2507,75 @@ html {
 	}
 }
 .drawer-toggle:focus-visible~.drawer-content .drawer-button.btn-primary {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--p));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--p));
 }
 .drawer-toggle:focus-visible~.drawer-content .drawer-button.btn-secondary {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--s));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--s));
 }
 .drawer-toggle:focus-visible~.drawer-content .drawer-button.btn-warning {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--wa));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--wa));
 }
 .drawer-toggle:focus-visible~.drawer-content .drawer-button.btn-error {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--er));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--er));
 }
 .label-text {
 	font-size: .875rem;
 	line-height: 1.25rem;
 	--tw-text-opacity: 1;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .label-text-alt {
 	font-size: .75rem;
 	line-height: 1rem;
 	--tw-text-opacity: 1;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .label a:hover {
 	--tw-text-opacity: 1;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .input-bordered {
 	--tw-border-opacity: 0.2;
 }
 .input-error {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--er)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--er) / var(--tw-border-opacity, 1));
 }
 .input-error:focus {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--er));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--er));
 }
 .input-disabled,.input[disabled] {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b2)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b2) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
 	cursor: not-allowed;
 	--tw-text-opacity: 0.2;
 }
 .input-disabled::-moz-placeholder,.input[disabled]::-moz-placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .input-disabled:-ms-input-placeholder,.input[disabled]:-ms-input-placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .input-disabled::-moz-placeholder, .input[disabled]::-moz-placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .input-disabled:-ms-input-placeholder, .input[disabled]:-ms-input-placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .input-disabled::placeholder,.input[disabled]::placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .link:focus {
 	outline: 2px solid transparent;
@@ -2583,12 +2586,12 @@ html {
 }
 .menu.horizontal li.bordered>a,.menu.horizontal li.bordered>span {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 	border-left-width: 0;
 	border-bottom-width: 4px;
 }
 .menu[class*=p-] li a {
-	border-radius: var(--rounded-btn,.5rem);
+	border-radius: var(--rounded-btn, .5rem);
 }
 .menu li>a,.menu li>span {
 	padding: .75rem 1.25rem;
@@ -2597,19 +2600,19 @@ html {
 .menu li>a:focus,.menu li>a:hover {
 	--tw-bg-opacity: 1;
 	--tw-bg-opacity: 0.1;
-	background-color: hsla(var(--bc)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
 }
 .menu li>a.active {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--p) / var(--tw-bg-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .menu li>a:active {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--pf)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--pf) / var(--tw-bg-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .menu li.disabled>a:hover,.menu li.disabled>span:hover {
 	background-color: transparent;
@@ -2617,11 +2620,11 @@ html {
 .menu li.disabled>a,.menu li.disabled>span {
 	--tw-text-opacity: 1;
 	--tw-text-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .menu li.bordered a,.menu li.bordered span {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 	border-left-width: 4px;
 }
 .menu li.hover-bordered a {
@@ -2630,7 +2633,7 @@ html {
 }
 .menu li.hover-bordered a:hover {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 }
 .menu ul {
 	padding-left: 1.5rem;
@@ -2649,11 +2652,11 @@ html {
 	padding-bottom: .25rem;
 	--tw-text-opacity: 1;
 	--tw-text-opacity: 0.4;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+	color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 .modal-box {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b1)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
 	padding: 1.5rem;
 	width: 100%;
 	--tw-translate-x: 0;
@@ -2665,13 +2668,13 @@ html {
 	--tw-scale-x: 1;
 	--tw-scale-y: 1;
 	transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 	transition-duration: .15s;
 	transition-duration: .2s;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
-	border-top-left-radius: var(--rounded-box,1rem);
-	border-top-right-radius: var(--rounded-box,1rem);
-	box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+	border-top-left-radius: var(--rounded-box, 1rem);
+	border-top-right-radius: var(--rounded-box, 1rem);
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
 }
 .modal-open .modal-box,.modal-toggle:checked+.modal .modal-box,.modal:target .modal-box {
 	--tw-scale-x: 1;
@@ -2686,29 +2689,29 @@ html {
 @-webkit-keyframes radiomark {
 
 	0% {
-		box-shadow: 0 0 0 12px hsl(var(--b1)) inset,0 0 0 12px hsl(var(--b1)) inset,var(--focus-shadow);
+		box-shadow: 0 0 0 12px hsl(var(--b1)) inset, 0 0 0 12px hsl(var(--b1)) inset, var(--focus-shadow);
 	}
 
 	50% {
-		box-shadow: 0 0 0 3px hsl(var(--b1)) inset,0 0 0 3px hsl(var(--b1)) inset,var(--focus-shadow);
+		box-shadow: 0 0 0 3px hsl(var(--b1)) inset, 0 0 0 3px hsl(var(--b1)) inset, var(--focus-shadow);
 	}
 
 	to {
-		box-shadow: 0 0 0 4px hsl(var(--b1)) inset,0 0 0 4px hsl(var(--b1)) inset,var(--focus-shadow);
+		box-shadow: 0 0 0 4px hsl(var(--b1)) inset, 0 0 0 4px hsl(var(--b1)) inset, var(--focus-shadow);
 	}
 }
 @keyframes radiomark {
 
 	0% {
-		box-shadow: 0 0 0 12px hsl(var(--b1)) inset,0 0 0 12px hsl(var(--b1)) inset,var(--focus-shadow);
+		box-shadow: 0 0 0 12px hsl(var(--b1)) inset, 0 0 0 12px hsl(var(--b1)) inset, var(--focus-shadow);
 	}
 
 	50% {
-		box-shadow: 0 0 0 3px hsl(var(--b1)) inset,0 0 0 3px hsl(var(--b1)) inset,var(--focus-shadow);
+		box-shadow: 0 0 0 3px hsl(var(--b1)) inset, 0 0 0 3px hsl(var(--b1)) inset, var(--focus-shadow);
 	}
 
 	to {
-		box-shadow: 0 0 0 4px hsl(var(--b1)) inset,0 0 0 4px hsl(var(--b1)) inset,var(--focus-shadow);
+		box-shadow: 0 0 0 4px hsl(var(--b1)) inset, 0 0 0 4px hsl(var(--b1)) inset, var(--focus-shadow);
 	}
 }
 .select-bordered {
@@ -2716,35 +2719,35 @@ html {
 }
 .select-error {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--er)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--er) / var(--tw-border-opacity, 1));
 }
 .select-error:focus {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--er));
+	box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--er));
 }
 .select-disabled::-moz-placeholder,.select[disabled]::-moz-placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .select-disabled:-ms-input-placeholder,.select[disabled]:-ms-input-placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .select-disabled::-moz-placeholder, .select[disabled]::-moz-placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .select-disabled:-ms-input-placeholder, .select[disabled]:-ms-input-placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .select-disabled::placeholder,.select[disabled]::placeholder {
 	--tw-placeholder-opacity: 1;
 	--tw-placeholder-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-placeholder-opacity,1));
+	color: hsla(var(--bc) / var(--tw-placeholder-opacity, 1));
 }
 .table td,.table th {
 	padding: 1rem;
@@ -2753,20 +2756,20 @@ html {
 }
 .table tr.active:nth-child(2n) td,.table tr.active:nth-child(2n) th,.table tr.active td,.table tr.active th {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b3)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b3) / var(--tw-bg-opacity, 1));
 }
 .table tr.hover:hover td,.table tr.hover:hover th,.table tr.hover:nth-child(2n):hover td,.table tr.hover:nth-child(2n):hover th {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b3)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b3) / var(--tw-bg-opacity, 1));
 }
 .table:not(.table-zebra) tbody tr:not(:last-child) td,.table:not(.table-zebra) tbody tr:not(:last-child) th,.table:not(.table-zebra) tfoot tr:not(:last-child) td,.table:not(.table-zebra) tfoot tr:not(:last-child) th,.table:not(.table-zebra) thead tr:not(:last-child) td,.table:not(.table-zebra) thead tr:not(:last-child) th {
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
 	border-bottom-width: 1px;
 }
 .table tfoot td,.table tfoot th,.table thead td,.table thead th {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b2)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b2) / var(--tw-bg-opacity, 1));
 	font-weight: 700;
 	font-size: .75rem;
 	line-height: 1rem;
@@ -2782,7 +2785,7 @@ html {
 }
 .table tbody td,.table tbody th {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b1)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
 }
 .table-zebra tbody tr td:first-child,.table-zebra tbody tr th:first-child {
 	border-top-left-radius: .5rem;
@@ -2794,10 +2797,10 @@ html {
 }
 .table-zebra tbody tr:nth-child(2n) td,.table-zebra tbody tr:nth-child(2n) th {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b2)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--b2) / var(--tw-bg-opacity, 1));
 }
 .toggle {
-	--chkbg: hsla(var(--bc)/.2);
+	--chkbg: hsla(var(--bc) / .2);
 	--focus-shadow: 0 0 0;
 	--handleoffset: 1.5rem;
 	-webkit-appearance: none;
@@ -2805,74 +2808,74 @@ html {
 	appearance: none;
 	--tw-bg-opacity: 1;
 	--tw-bg-opacity: 0.2;
-	background-color: hsla(var(--bc)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
 	--tw-border-opacity: 0.2;
-	border-color: hsla(var(--bc)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
 	border-width: 1px;
 	cursor: pointer;
 	height: 1.5rem;
 	width: 3rem;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 	transition-duration: .3s;
-	border-radius: var(--rounded-badge,1.9rem);
-	transition: background,box-shadow var(--animation-input,.2s) ease-in-out;
-	box-shadow: calc(var(--handleoffset)*-1) 0 0 2px hsl(var(--b1)) inset,0 0 0 2px hsl(var(--b1)) inset,var(--focus-shadow);
+	border-radius: var(--rounded-badge, 1.9rem);
+	transition: background,box-shadow var(--animation-input, .2s) ease-in-out;
+	box-shadow: calc(var(--handleoffset)*-1) 0 0 2px hsl(var(--b1)) inset, 0 0 0 2px hsl(var(--b1)) inset, var(--focus-shadow);
 }
 .toggle:focus-visible {
-	--focus-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--bc));
+	--focus-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--bc));
 }
 .toggle:checked {
 	--chkbg: hsl(var(--bc));
 	--tw-bg-opacity: 1;
 	--tw-border-opacity: 1;
-	box-shadow: var(--handleoffset) 0 0 2px hsl(var(--b1)) inset,0 0 0 2px hsl(var(--b1)) inset,var(--focus-shadow);
+	box-shadow: var(--handleoffset) 0 0 2px hsl(var(--b1)) inset, 0 0 0 2px hsl(var(--b1)) inset, var(--focus-shadow);
 }
 [dir=rtl] .toggle:checked {
-	box-shadow: calc(var(--handleoffset)*1) 0 0 2px hsl(var(--b1)) inset,0 0 0 2px hsl(var(--b1)) inset,var(--focus-shadow);
+	box-shadow: calc(var(--handleoffset)*1) 0 0 2px hsl(var(--b1)) inset, 0 0 0 2px hsl(var(--b1)) inset, var(--focus-shadow);
 }
 .toggle:disabled {
 	--tw-bg-opacity: 1;
 	--tw-bg-opacity: 0.2;
-	background-color: hsla(var(--bc)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
 	border-color: transparent;
 	cursor: not-allowed;
 }
 .badge-primary {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--p) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+	color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
 .badge-secondary {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--s)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--s) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--s) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
+	color: hsla(var(--sc) / var(--tw-text-opacity, 1));
 }
 .badge-accent {
 	--tw-bg-opacity: 1;
-	background-color: hsla(var(--a)/var(--tw-bg-opacity,1));
+	background-color: hsla(var(--a) / var(--tw-bg-opacity, 1));
 	--tw-border-opacity: 1;
-	border-color: hsla(var(--a)/var(--tw-border-opacity,1));
+	border-color: hsla(var(--a) / var(--tw-border-opacity, 1));
 	--tw-text-opacity: 1;
-	color: hsla(var(--ac)/var(--tw-text-opacity,1));
+	color: hsla(var(--ac) / var(--tw-text-opacity, 1));
 }
 .badge-outline.badge-primary {
 	--tw-text-opacity: 1;
-	color: hsla(var(--p)/var(--tw-text-opacity,1));
+	color: hsla(var(--p) / var(--tw-text-opacity, 1));
 }
 .badge-outline.badge-secondary {
 	--tw-text-opacity: 1;
-	color: hsla(var(--s)/var(--tw-text-opacity,1));
+	color: hsla(var(--s) / var(--tw-text-opacity, 1));
 }
 .badge-outline.badge-accent {
 	--tw-text-opacity: 1;
-	color: hsla(var(--a)/var(--tw-text-opacity,1));
+	color: hsla(var(--a) / var(--tw-text-opacity, 1));
 }
 .visible {
 	visibility: visible;
