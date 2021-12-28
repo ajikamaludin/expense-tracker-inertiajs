@@ -10,10 +10,23 @@ use App\Models\Budget;
 
 class ExpenseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $query = Transaction::with(['category:name,id']);
+
+        if ($request->q != null) {
+            $query->where('description', 'like', '%'.$request->q.'%');
+        }
+
+        if ($request->startDate != null && $request->endDate != null) {
+            $query->whereBetween('date', [$request->startDate, $request->endDate]);
+        }
+
         return inertia('Transaction', [
-            'transactions' => Transaction::with(['category:name,id'])->orderBy('date', 'desc')->paginate(10),
+            'transactions' => $query->orderBy('date', 'desc')->paginate(10),
+            '_search' => $request->q,
+            '_startDate' => $request->startDate,
+            '_endDate' => $request->endDate
         ]);
     }
 

@@ -61,7 +61,7 @@ export default function Authenticated({ header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('transactions')} active={route().current('transactions')}>
+                        <ResponsiveNavLink href={route('categories')} active={route().current('categories')}>
                             Category
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('transactions')} active={route().current('transactions')}>

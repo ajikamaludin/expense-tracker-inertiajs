@@ -8,10 +8,18 @@ use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->q != null) {
+            $query = Category::where('name', 'like', '%'.$request->q.'%')
+                    ->orWhere('description', 'like', '%'.$request->q.'%')
+                    ->orderBy('created_at', 'asc')
+                    ->paginate(10);
+        } else {
+            $query = Category::orderBy('created_at', 'asc')->paginate(10);
+        }
         return inertia('Category', [
-            'categories' => Category::orderBy('created_at', 'asc')->paginate(10)
+            'categories' => $query
         ]);
     }
 
