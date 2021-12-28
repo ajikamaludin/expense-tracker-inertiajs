@@ -1,6 +1,7 @@
 # Expense Tracker - Laravel inertiajs
 
 laravel Expense Tracker Example with inertiajs - react with ui kit [daisyui](https://daisyui.com/components/form/input)
+
 database use sqlite
 
 ## Requirements
