@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\Category;
+use App\Models\Budget;
 
 class ExpenseController extends Controller
 {
@@ -13,7 +14,6 @@ class ExpenseController extends Controller
     {
         return inertia('Transaction', [
             'transactions' => Transaction::with(['category:name,id'])->orderBy('date', 'desc')->paginate(10),
-            'categories' => Category::all()
         ]);
     }
 
@@ -62,8 +62,7 @@ class ExpenseController extends Controller
         ]);
 
         DB::beginTransaction();
-        // return when it create
-        if ($transaction->is_income == 0) { // pasti ada
+        if ($transaction->is_income == 0) {
             $budget = $transaction->category->budgets()->where('end_date', null)->first();
             $budget->update(['total_used' => $budget->total_used - $transaction->amount]);
             if ($transaction->income_type == 1) {
@@ -79,9 +78,11 @@ class ExpenseController extends Controller
 
         $transaction->update($request->input());
 
-        // add new
         if ($transaction->is_income == 0) {
-            $budget = $transaction->category->budgets()->where('end_date', null)->first();
+            $budget = Budget::where([
+                ['end_date', '=', null],
+                ['category_id', '=', $transaction->category_id]
+            ])->first();
             $budget->update(['total_used' => $budget->total_used + $request->amount]);
             if ($request->income_type == 1) {
                 $budget->update([
@@ -101,8 +102,7 @@ class ExpenseController extends Controller
     public function destroy(Transaction $transaction)
     {
         DB::beginTransaction();
-        // return when it create
-        if ($transaction->is_income == 0 && $transaction->category->deleted_at == null) { // pasti ada
+        if ($transaction->is_income == 0 && $transaction->category->deleted_at == null) {
             $budget = $transaction->category->budgets()->where('end_date', null)->first();
             $budget->update(['total_used' => $budget->total_used - $transaction->amount]);
             if ($transaction->income_type == 1) {
