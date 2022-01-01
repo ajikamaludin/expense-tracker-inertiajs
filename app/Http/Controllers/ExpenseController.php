@@ -66,7 +66,7 @@ class ExpenseController extends Controller
 
         DB::commit();
 
-        return redirect()->route('transactions');
+        return redirect()->back();
     }
 
     public function update(Request $request, Transaction $transaction)
