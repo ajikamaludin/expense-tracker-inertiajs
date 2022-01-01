@@ -2577,7 +2577,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var qs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! qs */ "./node_modules/qs/lib/index.js");
+/* harmony import */ var qs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(qs__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -2585,14 +2588,15 @@ __webpack_require__.r(__webpack_exports__);
 var PageLink = function PageLink(_ref) {
   var active = _ref.active,
       label = _ref.label,
-      url = _ref.url;
+      url = _ref.url,
+      params = _ref.params;
   var className = classnames__WEBPACK_IMPORTED_MODULE_1___default()(['mr-1 mb-1', 'px-4 py-3', 'border border-solid border-gray-300 rounded', 'text-sm', 'bg-white', 'hover:bg-white', 'focus:outline-none focus:border-indigo-700 focus:text-indigo-700'], {
     'border-indigo-600 bg-indigo-600 text-white hover:bg-indigo-400': active
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
     className: className,
-    href: url,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+    href: "".concat(url, "&").concat(qs__WEBPACK_IMPORTED_MODULE_2___default().stringify(params)),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
       dangerouslySetInnerHTML: {
         __html: label
       }
@@ -2606,7 +2610,7 @@ var PageLink = function PageLink(_ref) {
 var PageInactive = function PageInactive(_ref2) {
   var label = _ref2.label;
   var className = classnames__WEBPACK_IMPORTED_MODULE_1___default()('mr-1 mb-1 px-4 py-3 text-sm border rounded border-solid border-gray-300 text-gray');
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: className,
     dangerouslySetInnerHTML: {
       __html: label
@@ -2616,21 +2620,24 @@ var PageInactive = function PageInactive(_ref2) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (_ref3) {
   var _ref3$links = _ref3.links,
-      links = _ref3$links === void 0 ? [] : _ref3$links;
+      links = _ref3$links === void 0 ? [] : _ref3$links,
+      _ref3$params = _ref3.params,
+      params = _ref3$params === void 0 ? {} : _ref3$params;
   // dont render, if there's only 1 page (previous, 1, next)
   if (links.length === 3) return null;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "flex flex-wrap mt-6 -mb-1",
     children: links.map(function (_ref4) {
       var active = _ref4.active,
           label = _ref4.label,
           url = _ref4.url;
-      return url === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(PageInactive, {
+      return url === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(PageInactive, {
         label: label
-      }, label) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(PageLink, {
+      }, label) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(PageLink, {
         label: label,
         active: active,
-        url: url
+        url: url,
+        params: params
       }, label);
     })
   });
@@ -3621,7 +3628,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Category(props) {
   var _jsx2;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _search = props._search;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_search),
       _useState2 = _slicedToArray(_useState, 2),
       search = _useState2[0],
       setSearch = _useState2[1];
@@ -3881,7 +3890,10 @@ function Category(props) {
                 })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
-              links: links
+              links: links,
+              params: {
+                q: search
+              }
             })]
           })
         })
@@ -4216,12 +4228,12 @@ function Transaction(props) {
       _startDate = props._startDate,
       _endDate = props._endDate;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_startDate ? _startDate : moment__WEBPACK_IMPORTED_MODULE_2___default()().startOf('month').format('YYYY-MM-DD')),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_startDate),
       _useState2 = _slicedToArray(_useState, 2),
       startDate = _useState2[0],
       setStartDate = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_endDate ? _endDate : moment__WEBPACK_IMPORTED_MODULE_2___default()().endOf('month').format('YYYY-MM-DD')),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_endDate),
       _useState4 = _slicedToArray(_useState3, 2),
       endDate = _useState4[0],
       setEndDate = _useState4[1];
@@ -4362,13 +4374,14 @@ function Transaction(props) {
     });
   };
 
+  var params = {
+    q: search,
+    startDate: startDate,
+    endDate: endDate
+  };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (prevValues) {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.get(route(route().current()), {
-        q: search,
-        startDate: startDate,
-        endDate: endDate
-      }, {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.get(route(route().current()), params, {
         replace: true,
         preserveState: true
       });
@@ -4503,7 +4516,8 @@ function Transaction(props) {
                 })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Components_Pagination__WEBPACK_IMPORTED_MODULE_7__["default"], {
-              links: transactions === null || transactions === void 0 ? void 0 : transactions.links
+              links: transactions === null || transactions === void 0 ? void 0 : transactions.links,
+              params: params
             })]
           })
         })

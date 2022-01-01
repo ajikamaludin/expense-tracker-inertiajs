@@ -19,7 +19,8 @@ class CategoryController extends Controller
             $query = Category::orderBy('created_at', 'asc')->paginate(10);
         }
         return inertia('Category', [
-            'categories' => $query
+            'categories' => $query,
+            '_search' => $request->q ? $request->q : ''
         ]);
     }
 

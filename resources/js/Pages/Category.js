@@ -9,8 +9,8 @@ import Pagination from '@/Components/Pagination'
 import Authenticated from '@/Layouts/Authenticated'
 
 export default function Category(props) {
-
-  const [search, setSearch] = useState('')
+  const { _search } = props
+  const [search, setSearch] = useState(_search)
   const preValue = usePrevious(search)
   const [category, setCategory] = useState(null)
 
@@ -251,7 +251,7 @@ export default function Category(props) {
                                   </tbody>
                               </table>
                           </div>
-                          <Pagination links={links} />
+                          <Pagination links={links} params={{ q: search }}/>
                       </div>
                   </div>
               </div>

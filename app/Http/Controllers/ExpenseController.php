@@ -18,15 +18,21 @@ class ExpenseController extends Controller
             $query->where('description', 'like', '%'.$request->q.'%');
         }
 
+        $startDate = now()->startOfMonth()->toDateString();
+        $endDate = now()->endOfMonth()->toDateString();
+
         if ($request->startDate != null && $request->endDate != null) {
-            $query->whereBetween('date', [$request->startDate, $request->endDate]);
+            $startDate = $request->startDate;
+            $endDate = $request->endDate;
         }
+
+        $query->whereBetween('date', [$startDate, $endDate]);
 
         return inertia('Transaction', [
             'transactions' => $query->orderBy('date', 'desc')->paginate(10),
             '_search' => $request->q,
-            '_startDate' => $request->startDate,
-            '_endDate' => $request->endDate
+            '_startDate' => $startDate,
+            '_endDate' => $endDate
         ]);
     }
 

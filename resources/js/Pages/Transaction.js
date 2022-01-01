@@ -12,12 +12,8 @@ import SelectInput from '@/Components/CategorySelectInput'
 
 export default function Transaction(props) {
   const { transactions, _search, _startDate, _endDate } = props
-  const [startDate, setStartDate] = useState( _startDate ? _startDate :
-    moment().startOf('month').format('YYYY-MM-DD')
-  )
-  const [endDate, setEndDate] = useState( _endDate ? _endDate :
-    moment().endOf('month').format('YYYY-MM-DD')
-  )
+  const [startDate, setStartDate] = useState(_startDate)
+  const [endDate, setEndDate] = useState(_endDate)
   const [search, setSearch] = useState(_search ? _search : '')
   const prevValues = usePrevious({search, startDate, endDate})
 
@@ -143,9 +139,11 @@ export default function Transaction(props) {
     })
   }
 
+  const params = { q: search, startDate, endDate }
+
   useEffect(() => {
     if(prevValues) {
-        Inertia.get(route(route().current()), { q: search, startDate, endDate }, {
+        Inertia.get(route(route().current()), params, {
         replace: true,
         preserveState: true
       })
@@ -302,7 +300,7 @@ export default function Transaction(props) {
                                 </tbody>
                             </table>
                         </div>
-                        <Pagination links={transactions?.links} />
+                        <Pagination links={transactions?.links} params={params}/>
                     </div>
                 </div>
             </div>

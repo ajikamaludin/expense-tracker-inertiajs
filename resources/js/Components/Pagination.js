@@ -1,7 +1,8 @@
 import { Link } from '@inertiajs/inertia-react';
 import classNames from 'classnames';
+import qs from 'qs';
 
-const PageLink = ({ active, label, url }) => {
+const PageLink = ({ active, label, url, params }) => {
   const className = classNames(
     [
       'mr-1 mb-1',
@@ -17,7 +18,7 @@ const PageLink = ({ active, label, url }) => {
     }
   );
   return (
-    <Link className={className} href={url}>
+    <Link className={className} href={`${url}&${qs.stringify(params)}`}>
       <span dangerouslySetInnerHTML={{ __html: label }}></span>
     </Link>
   );
@@ -35,18 +36,24 @@ const PageInactive = ({ label }) => {
   );
 };
 
-export default ({ links = [] }) => {
-  // dont render, if there's only 1 page (previous, 1, next)
-  if (links.length === 3) return null;
-  return (
-    <div className="flex flex-wrap mt-6 -mb-1">
-      {links.map(({ active, label, url }) => {
-        return url === null ? (
-          <PageInactive key={label} label={label} />
-        ) : (
-          <PageLink key={label} label={label} active={active} url={url} />
-        );
-      })}
-    </div>
-  );
-};
+export default ({ links = [], params = {}}) => {
+    // dont render, if there's only 1 page (previous, 1, next)
+    if (links.length === 3) return null
+    return (
+        <div className="flex flex-wrap mt-6 -mb-1">
+            {links.map(({ active, label, url }) => {
+                return url === null ? (
+                    <PageInactive key={label} label={label} />
+                ) : (
+                    <PageLink
+                        key={label}
+                        label={label}
+                        active={active}
+                        url={url}
+                        params={params}
+                    />
+                )
+            })}
+        </div>
+    )
+}
