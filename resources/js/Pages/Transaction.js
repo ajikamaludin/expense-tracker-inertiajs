@@ -78,8 +78,8 @@ export default function Transaction(props) {
   const handleReset = () => {
     setTransaction(null)
     setSearch('')
-    setStartDate(moment().startOf('month').format('YYYY-MM-DD'))
-    setEndDate(moment().endOf('month').format('YYYY-MM-DD'))
+    setStartDate(_startDate)
+    setEndDate(_endDate)
     setData({
       category_id: '',
       description: '',

@@ -4317,8 +4317,8 @@ function Transaction(props) {
   var handleReset = function handleReset() {
     setTransaction(null);
     setSearch('');
-    setStartDate(moment__WEBPACK_IMPORTED_MODULE_2___default()().startOf('month').format('YYYY-MM-DD'));
-    setEndDate(moment__WEBPACK_IMPORTED_MODULE_2___default()().endOf('month').format('YYYY-MM-DD'));
+    setStartDate(_startDate);
+    setEndDate(_endDate);
     setData({
       category_id: '',
       description: '',
