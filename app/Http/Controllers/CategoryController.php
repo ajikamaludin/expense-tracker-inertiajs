@@ -68,8 +68,11 @@ class CategoryController extends Controller
             'default_budget' => $request->amount,
         ]);
 
-        $budget = $category->budgets()->where('end_date', null);
-        $budget->update(['budget' => $request->amount]);
+        $budget = $category->budgets()->where('end_date', null)->first();
+        $budget->update([
+            'budget' => $request->amount,
+            'remain' => ($request->amount + $budget->rollover) - ($budget->total_used)
+        ]);
 
         return redirect()->route('categories');
     }
