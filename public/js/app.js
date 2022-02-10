@@ -7,7 +7,7 @@
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-function e(e){return e&&"object"==typeof e&&"default"in e?e.default:e}var n=e(__webpack_require__(/*! lodash.isequal */ "./node_modules/lodash.isequal/index.js")),r=__webpack_require__(/*! react */ "./node_modules/react/index.js"),t=e(r),o=__webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");function i(){return(i=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var r=arguments[n];for(var t in r)Object.prototype.hasOwnProperty.call(r,t)&&(e[t]=r[t])}return e}).apply(this,arguments)}function a(e,n){var t=r.useState(function(){var r=o.Inertia.restore(n);return void 0!==r?r:e}),i=t[0],a=t[1];return r.useEffect(function(){o.Inertia.remember(i,n)},[i,n]),[i,a]}var u=r.createContext();u.displayName="InertiaPageContext";var c=r.createContext();function s(e){var n=e.children,t=e.initialPage,a=e.resolveComponent,s=e.onHeadUpdate,l=r.useState({component:e.initialComponent||null,page:t,key:null}),f=l[0],p=l[1],d=r.useMemo(function(){return o.createHeadManager("undefined"==typeof window,s||function(){})},[]);if(r.useEffect(function(){o.Inertia.init({initialPage:t,resolveComponent:a,swapComponent:function(e){var n=e.component,r=e.page,t=e.preserveState;try{return p(function(e){return{component:n,page:r,key:t?e.key:Date.now()}}),Promise.resolve()}catch(e){return Promise.reject(e)}}})},[]),!f.component)return r.createElement(c.Provider,{value:d},r.createElement(u.Provider,{value:f.page},null));var v=n||function(e){var n=e.Component,t=e.props,o=r.createElement(n,i({key:e.key},t));return"function"==typeof n.layout?n.layout(o):Array.isArray(n.layout)?n.layout.concat(o).reverse().reduce(function(e,n){return r.createElement(n,i({children:e},t))}):o};return r.createElement(c.Provider,{value:d},r.createElement(u.Provider,{value:f.page},v({Component:f.component,key:f.key,props:f.page.props})))}function l(e){var n,o,i=e.children,a=e.title,u=r.useContext(c),s=r.useMemo(function(){return u.createProvider()},[u]);return r.useEffect(function(){return function(){s.disconnect()}},[s]),s.update((n=i,o=(Array.isArray(n)?n:[n]).filter(function(e){return e}).map(function(e){return function(e){return function e(n){var r=function(e){var n=Object.keys(e.props).reduce(function(n,r){if(["head-key","children","dangerouslySetInnerHTML"].includes(r))return n;var t=e.props[r];return""===t?n+" "+r:n+" "+r+'="'+t+'"'},"");return"<"+e.type+n+">"}(n);return n.props.children&&(r+=function(n){return"string"==typeof n.props.children?n.props.children:n.props.children.reduce(function(n,r){return n+e(r)},"")}(n)),n.props.dangerouslySetInnerHTML&&(r+=n.props.dangerouslySetInnerHTML.__html),function(e){return["area","base","br","col","embed","hr","img","input","keygen","link","meta","param","source","track","wbr"].indexOf(e.type)>-1}(n)||(r+="</"+n.type+">"),r}(function(e){return t.cloneElement(e,{inertia:void 0!==e.props["head-key"]?e.props["head-key"]:""})}(e))}(e)}),a&&!o.find(function(e){return e.startsWith("<title")})&&o.push("<title inertia>"+a+"</title>"),o)),null}c.displayName="InertiaHeadContext",s.displayName="Inertia";var f=["children","as","data","href","method","preserveScroll","preserveState","replace","only","headers","onClick","onCancelToken","onBefore","onStart","onProgress","onFinish","onCancel","onSuccess","onError"],p=function(){},d=r.forwardRef(function(e,n){var t=e.children,a=e.as,u=void 0===a?"a":a,c=e.data,s=void 0===c?{}:c,l=e.href,d=e.method,v=void 0===d?"get":d,m=e.preserveScroll,h=void 0!==m&&m,y=e.preserveState,g=void 0===y?null:y,S=e.replace,k=void 0!==S&&S,C=e.only,b=void 0===C?[]:C,P=e.headers,E=void 0===P?{}:P,x=e.onClick,I=void 0===x?p:x,w=e.onCancelToken,T=void 0===w?p:w,O=e.onBefore,j=void 0===O?p:O,L=e.onStart,H=void 0===L?p:L,A=e.onProgress,F=void 0===A?p:A,R=e.onFinish,B=void 0===R?p:R,D=e.onCancel,M=void 0===D?p:D,N=e.onSuccess,q=void 0===N?p:N,U=e.onError,J=void 0===U?p:U,W=function(e,n){if(null==e)return{};var r,t,o={},i=Object.keys(e);for(t=0;t<i.length;t++)n.indexOf(r=i[t])>=0||(o[r]=e[r]);return o}(e,f),_=r.useCallback(function(e){I(e),o.shouldIntercept(e)&&(e.preventDefault(),o.Inertia.visit(l,{data:s,method:v,preserveScroll:h,preserveState:null!=g?g:"get"!==v,replace:k,only:b,headers:E,onCancelToken:T,onBefore:j,onStart:H,onProgress:F,onFinish:B,onCancel:M,onSuccess:q,onError:J}))},[s,l,v,h,g,k,b,E,I,T,j,H,F,B,M,q,J]);u=u.toLowerCase(),v=v.toLowerCase();var Q=o.mergeDataIntoQueryString(v,l,s);return l=Q[0],s=Q[1],"a"===u&&"get"!==v&&console.warn('Creating POST/PUT/PATCH/DELETE <a> links is discouraged as it causes "Open Link in New Tab/Window" accessibility issues.\n\nPlease specify a more appropriate element using the "as" attribute. For example:\n\n<InertiaLink href="'+l+'" method="'+v+'" as="button">...</InertiaLink>'),r.createElement(u,i({},W,"a"===u?{href:l}:{},{ref:n,onClick:_}),t)});exports.App=s,exports.Head=l,exports.InertiaApp=s,exports.InertiaHead=l,exports.InertiaLink=d,exports.Link=d,exports.app=s,exports.createInertiaApp=function(e){try{var n,t,o,i,a,u;t=void 0===(n=e.id)?"app":n,o=e.resolve,i=e.setup,a=e.page,u=e.render;var c="undefined"==typeof window,l=c?null:document.getElementById(t),f=a||JSON.parse(l.dataset.page),p=function(e){return Promise.resolve(o(e)).then(function(e){return e.default||e})},d=[];return Promise.resolve(p(f.component).then(function(e){return i({el:l,App:s,props:{initialPage:f,initialComponent:e,resolveComponent:p,onHeadUpdate:c?function(e){return d=e}:null}})})).then(function(e){return function(){if(c)return Promise.resolve(u(r.createElement("div",{id:t,"data-page":JSON.stringify(f)},e))).then(function(e){return{head:d,body:e}})}()})}catch(e){return Promise.reject(e)}},exports.link=d,exports.useForm=function(){var e=[].slice.call(arguments),t=r.useRef(null),u="string"==typeof e[0]?e[0]:null,c=("string"==typeof e[0]?e[1]:e[0])||{},s=r.useRef(null),l=r.useRef(null),f=u?a(c,u+":data"):r.useState(c),p=f[0],d=f[1],v=u?a({},u+":errors"):r.useState({}),m=v[0],h=v[1],y=r.useState(!1),g=y[0],S=y[1],k=r.useState(!1),C=k[0],b=k[1],P=r.useState(null),E=P[0],x=P[1],I=r.useState(!1),w=I[0],T=I[1],O=r.useState(!1),j=O[0],L=O[1],H=function(e){return e};r.useEffect(function(){return t.current=!0,function(){t.current=!1}},[]);var A=r.useCallback(function(e,n,r){void 0===r&&(r={});var a=i({},r,{onCancelToken:function(e){if(s.current=e,r.onCancelToken)return r.onCancelToken(e)},onBefore:function(e){if(T(!1),L(!1),clearTimeout(l.current),r.onBefore)return r.onBefore(e)},onStart:function(e){if(b(!0),r.onStart)return r.onStart(e)},onProgress:function(e){if(x(e),r.onProgress)return r.onProgress(e)},onSuccess:function(e){if(t.current&&(b(!1),x(null),h({}),S(!1),T(!0),L(!0),l.current=setTimeout(function(){return L(!1)},2e3)),r.onSuccess)return r.onSuccess(e)},onError:function(e){if(t.current&&(b(!1),x(null),h(e),S(!0)),r.onError)return r.onError(e)},onCancel:function(){if(t.current&&(b(!1),x(null)),r.onCancel)return r.onCancel()},onFinish:function(){if(t.current&&(b(!1),x(null)),s.current=null,r.onFinish)return r.onFinish()}});"delete"===e?o.Inertia.delete(n,i({},a,{data:H(p)})):o.Inertia[e](n,H(p),a)},[p,h]);return{data:p,setData:function(e,n){var r;d("string"==typeof e?i({},p,((r={})[e]=n,r)):"function"==typeof e?function(n){return e(n)}:e)},isDirty:!n(p,c),errors:m,hasErrors:g,processing:C,progress:E,wasSuccessful:w,recentlySuccessful:j,transform:function(e){H=e},reset:function(){var e=[].slice.call(arguments);d(0===e.length?c:Object.keys(c).filter(function(n){return e.includes(n)}).reduce(function(e,n){return e[n]=c[n],e},{}))},clearErrors:function(){var e=[].slice.call(arguments);h(Object.keys(m).reduce(function(n,r){var t;return i({},n,e.length>0&&!e.includes(r)?((t={})[r]=m[r],t):{})},{})),S(Object.keys(m).length>0)},submit:A,get:function(e,n){A("get",e,n)},post:function(e,n){A("post",e,n)},put:function(e,n){A("put",e,n)},patch:function(e,n){A("patch",e,n)},delete:function(e,n){A("delete",e,n)},cancel:function(){s.current&&s.current.cancel()}}},exports.usePage=function(){var e=r.useContext(u);if(!e)throw new Error("usePage must be used within the Inertia component");return e},exports.useRemember=a,exports.useRememberedState=function(e,n){return console.warn('The "useRememberedState" hook has been deprecated and will be removed in a future release. Use "useRemember" instead.'),a(e,n)};
+function e(e){return e&&"object"==typeof e&&"default"in e?e.default:e}var n=e(__webpack_require__(/*! lodash.isequal */ "./node_modules/lodash.isequal/index.js")),r=__webpack_require__(/*! react */ "./node_modules/react/index.js"),t=e(r),o=__webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");function i(){return(i=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var r=arguments[n];for(var t in r)Object.prototype.hasOwnProperty.call(r,t)&&(e[t]=r[t])}return e}).apply(this,arguments)}function u(e,n){var t=r.useState(function(){var r=o.Inertia.restore(n);return void 0!==r?r:e}),i=t[0],u=t[1];return r.useEffect(function(){o.Inertia.remember(i,n)},[i,n]),[i,u]}var a=r.createContext();a.displayName="InertiaPageContext";var c=r.createContext();function s(e){var n=e.children,t=e.initialPage,u=e.resolveComponent,s=e.titleCallback,l=e.onHeadUpdate,f=r.useState({component:e.initialComponent||null,page:t,key:null}),p=f[0],d=f[1],v=r.useMemo(function(){return o.createHeadManager("undefined"==typeof window,s||function(e){return e},l||function(){})},[]);if(r.useEffect(function(){o.Inertia.init({initialPage:t,resolveComponent:u,swapComponent:function(e){var n=e.component,r=e.page,t=e.preserveState;try{return d(function(e){return{component:n,page:r,key:t?e.key:Date.now()}}),Promise.resolve()}catch(e){return Promise.reject(e)}}})},[]),!p.component)return r.createElement(c.Provider,{value:v},r.createElement(a.Provider,{value:p.page},null));var m=n||function(e){var n=e.Component,t=e.props,o=r.createElement(n,i({key:e.key},t));return"function"==typeof n.layout?n.layout(o):Array.isArray(n.layout)?n.layout.concat(o).reverse().reduce(function(e,n){return r.createElement(n,i({children:e},t))}):o};return r.createElement(c.Provider,{value:v},r.createElement(a.Provider,{value:p.page},m({Component:p.component,key:p.key,props:p.page.props})))}function l(e){var n,o,i=e.children,u=e.title,a=r.useContext(c),s=r.useMemo(function(){return a.createProvider()},[a]);return r.useEffect(function(){return function(){s.disconnect()}},[s]),s.update((n=i,o=(Array.isArray(n)?n:[n]).filter(function(e){return e}).map(function(e){return function(e){return function e(n){var r=function(e){var n=Object.keys(e.props).reduce(function(n,r){if(["head-key","children","dangerouslySetInnerHTML"].includes(r))return n;var t=e.props[r];return""===t?n+" "+r:n+" "+r+'="'+t+'"'},"");return"<"+e.type+n+">"}(n);return n.props.children&&(r+=function(n){return"string"==typeof n.props.children?n.props.children:n.props.children.reduce(function(n,r){return n+e(r)},"")}(n)),n.props.dangerouslySetInnerHTML&&(r+=n.props.dangerouslySetInnerHTML.__html),function(e){return["area","base","br","col","embed","hr","img","input","keygen","link","meta","param","source","track","wbr"].indexOf(e.type)>-1}(n)||(r+="</"+n.type+">"),r}(function(e){return t.cloneElement(e,{inertia:void 0!==e.props["head-key"]?e.props["head-key"]:""})}(e))}(e)}),u&&!o.find(function(e){return e.startsWith("<title")})&&o.push("<title inertia>"+u+"</title>"),o)),null}c.displayName="InertiaHeadContext",s.displayName="Inertia";var f=function(){},p=r.forwardRef(function(e,n){var t=e.children,u=e.as,a=void 0===u?"a":u,c=e.data,s=void 0===c?{}:c,l=e.href,p=e.method,d=void 0===p?"get":p,v=e.preserveScroll,m=void 0!==v&&v,y=e.preserveState,h=void 0===y?null:y,g=e.replace,S=void 0!==g&&g,k=e.only,C=void 0===k?[]:k,b=e.headers,P=void 0===b?{}:b,E=e.queryStringArrayFormat,x=void 0===E?"brackets":E,w=e.onClick,I=void 0===w?f:w,T=e.onCancelToken,O=void 0===T?f:T,j=e.onBefore,A=void 0===j?f:j,L=e.onStart,F=void 0===L?f:L,H=e.onProgress,R=void 0===H?f:H,B=e.onFinish,D=void 0===B?f:B,q=e.onCancel,M=void 0===q?f:q,N=e.onSuccess,U=void 0===N?f:N,J=e.onError,W=void 0===J?f:J,_=function(e,n){if(null==e)return{};var r,t,o={},i=Object.keys(e);for(t=0;t<i.length;t++)n.indexOf(r=i[t])>=0||(o[r]=e[r]);return o}(e,["children","as","data","href","method","preserveScroll","preserveState","replace","only","headers","queryStringArrayFormat","onClick","onCancelToken","onBefore","onStart","onProgress","onFinish","onCancel","onSuccess","onError"]),Q=r.useCallback(function(e){I(e),o.shouldIntercept(e)&&(e.preventDefault(),o.Inertia.visit(l,{data:s,method:d,preserveScroll:m,preserveState:null!=h?h:"get"!==d,replace:S,only:C,headers:P,onCancelToken:O,onBefore:A,onStart:F,onProgress:R,onFinish:D,onCancel:M,onSuccess:U,onError:W}))},[s,l,d,m,h,S,C,P,I,O,A,F,R,D,M,U,W]);a=a.toLowerCase(),d=d.toLowerCase();var z=o.mergeDataIntoQueryString(d,l||"",s,x);return l=z[0],s=z[1],"a"===a&&"get"!==d&&console.warn('Creating POST/PUT/PATCH/DELETE <a> links is discouraged as it causes "Open Link in New Tab/Window" accessibility issues.\n\nPlease specify a more appropriate element using the "as" attribute. For example:\n\n<Link href="'+l+'" method="'+d+'" as="button">...</Link>'),r.createElement(a,i({},_,"a"===a?{href:l}:{},{ref:n,onClick:Q}),t)});exports.App=s,exports.Head=l,exports.InertiaApp=s,exports.InertiaHead=l,exports.InertiaLink=p,exports.Link=p,exports.app=s,exports.createInertiaApp=function(e){try{var n,t,o,i,u,a,c;t=void 0===(n=e.id)?"app":n,o=e.resolve,i=e.setup,u=e.title,a=e.page,c=e.render;var l="undefined"==typeof window,f=l?null:document.getElementById(t),p=a||JSON.parse(f.dataset.page),d=function(e){return Promise.resolve(o(e)).then(function(e){return e.default||e})},v=[];return Promise.resolve(d(p.component).then(function(e){return i({el:f,App:s,props:{initialPage:p,initialComponent:e,resolveComponent:d,titleCallback:u,onHeadUpdate:l?function(e){return v=e}:null}})})).then(function(e){return function(){if(l)return Promise.resolve(c(r.createElement("div",{id:t,"data-page":JSON.stringify(p)},e))).then(function(e){return{head:v,body:e}})}()})}catch(e){return Promise.reject(e)}},exports.link=p,exports.useForm=function(){var e=[].slice.call(arguments),t=r.useRef(null),a="string"==typeof e[0]?e[0]:null,c=r.useState(("string"==typeof e[0]?e[1]:e[0])||{}),s=c[0],l=c[1],f=r.useRef(null),p=r.useRef(null),d=a?u(s,a+":data"):r.useState(s),v=d[0],m=d[1],y=a?u({},a+":errors"):r.useState({}),h=y[0],g=y[1],S=r.useState(!1),k=S[0],C=S[1],b=r.useState(!1),P=b[0],E=b[1],x=r.useState(null),w=x[0],I=x[1],T=r.useState(!1),O=T[0],j=T[1],A=r.useState(!1),L=A[0],F=A[1],H=function(e){return e};r.useEffect(function(){return t.current=!0,function(){t.current=!1}},[]);var R=r.useCallback(function(e,n,r){void 0===r&&(r={});var u=i({},r,{onCancelToken:function(e){if(f.current=e,r.onCancelToken)return r.onCancelToken(e)},onBefore:function(e){if(j(!1),F(!1),clearTimeout(p.current),r.onBefore)return r.onBefore(e)},onStart:function(e){if(E(!0),r.onStart)return r.onStart(e)},onProgress:function(e){if(I(e),r.onProgress)return r.onProgress(e)},onSuccess:function(e){if(t.current&&(E(!1),I(null),g({}),C(!1),j(!0),F(!0),p.current=setTimeout(function(){t.current&&F(!1)},2e3)),r.onSuccess)return r.onSuccess(e)},onError:function(e){if(t.current&&(E(!1),I(null),g(e),C(!0)),r.onError)return r.onError(e)},onCancel:function(){if(t.current&&(E(!1),I(null)),r.onCancel)return r.onCancel()},onFinish:function(){if(t.current&&(E(!1),I(null)),f.current=null,r.onFinish)return r.onFinish()}});"delete"===e?o.Inertia.delete(n,i({},u,{data:H(v)})):o.Inertia[e](n,H(v),u)},[v,g]);return{data:v,setData:function(e,n){var r;m("string"==typeof e?i({},v,((r={})[e]=n,r)):"function"==typeof e?function(n){return e(n)}:e)},isDirty:!n(v,s),errors:h,hasErrors:k,processing:P,progress:w,wasSuccessful:O,recentlySuccessful:L,transform:function(e){H=e},setDefaults:function(e,n){l(void 0===e?function(){return v}:function(r){var t;return i({},r,n?((t={})[e]=n,t):e)})},reset:function(){var e=[].slice.call(arguments);m(0===e.length?s:Object.keys(s).filter(function(n){return e.includes(n)}).reduce(function(e,n){return e[n]=s[n],e},i({},v)))},setError:function(e,n){g(function(r){var t,o=i({},r,n?((t={})[e]=n,t):e);return C(Object.keys(o).length>0),o})},clearErrors:function(){var e=[].slice.call(arguments);g(function(n){var r=Object.keys(n).reduce(function(r,t){var o;return i({},r,e.length>0&&!e.includes(t)?((o={})[t]=n[t],o):{})},{});return C(Object.keys(r).length>0),r})},submit:R,get:function(e,n){R("get",e,n)},post:function(e,n){R("post",e,n)},put:function(e,n){R("put",e,n)},patch:function(e,n){R("patch",e,n)},delete:function(e,n){R("delete",e,n)},cancel:function(){f.current&&f.current.cancel()}}},exports.usePage=function(){var e=r.useContext(a);if(!e)throw new Error("usePage must be used within the Inertia component");return e},exports.useRemember=u,exports.useRememberedState=function(e,n){return console.warn('The "useRememberedState" hook has been deprecated and will be removed in a future release. Use "useRemember" instead.'),u(e,n)};
 //# sourceMappingURL=index.js.map
 
 
@@ -19,7 +19,7 @@ function e(e){return e&&"object"==typeof e&&"default"in e?e.default:e}var n=e(__
   \*******************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-function e(e){return e&&"object"==typeof e&&"default"in e?e.default:e}var t=e(__webpack_require__(/*! axios */ "./node_modules/axios/index.js")),n=__webpack_require__(/*! qs */ "./node_modules/qs/lib/index.js"),i=e(__webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js"));function r(){return(r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(e[i]=n[i])}return e}).apply(this,arguments)}var o,s={modal:null,listener:null,show:function(e){var t=this;"object"==typeof e&&(e="All Inertia requests must receive a valid Inertia response, however a plain JSON response was received.<hr>"+JSON.stringify(e));var n=document.createElement("html");n.innerHTML=e,n.querySelectorAll("a").forEach(function(e){return e.setAttribute("target","_top")}),this.modal=document.createElement("div"),this.modal.style.position="fixed",this.modal.style.width="100vw",this.modal.style.height="100vh",this.modal.style.padding="50px",this.modal.style.boxSizing="border-box",this.modal.style.backgroundColor="rgba(0, 0, 0, .6)",this.modal.style.zIndex=2e5,this.modal.addEventListener("click",function(){return t.hide()});var i=document.createElement("iframe");if(i.style.backgroundColor="white",i.style.borderRadius="5px",i.style.width="100%",i.style.height="100%",this.modal.appendChild(i),document.body.prepend(this.modal),document.body.style.overflow="hidden",!i.contentWindow)throw new Error("iframe not yet ready.");i.contentWindow.document.open(),i.contentWindow.document.write(n.outerHTML),i.contentWindow.document.close(),this.listener=this.hideOnEscape.bind(this),document.addEventListener("keydown",this.listener)},hide:function(){this.modal.outerHTML="",this.modal=null,document.body.style.overflow="visible",document.removeEventListener("keydown",this.listener)},hideOnEscape:function(e){27===e.keyCode&&this.hide()}};function a(e,t){var n;return function(){var i=arguments,r=this;clearTimeout(n),n=setTimeout(function(){return e.apply(r,[].slice.call(i))},t)}}function c(e,t,n){for(var i in void 0===t&&(t=new FormData),void 0===n&&(n=null),e=e||{})Object.prototype.hasOwnProperty.call(e,i)&&d(t,l(n,i),e[i]);return t}function l(e,t){return e?e+"["+t+"]":t}function d(e,t,n){return n instanceof Date?e.append(t,n.toISOString()):n instanceof File?e.append(t,n,n.name):n instanceof Blob?e.append(t,n):"boolean"==typeof n?e.append(t,n?"1":"0"):"string"==typeof n?e.append(t,n):"number"==typeof n?e.append(t,""+n):null==n?e.append(t,""):void c(n,e,t)}function u(e){return new URL(e.toString(),window.location.toString())}function h(e,t,r){var o=t.toString().includes("http"),s=o||t.toString().startsWith("/"),a=!s&&!t.toString().startsWith("#")&&!t.toString().startsWith("?"),c=t.toString().includes("?")||e===exports.Method.GET&&Object.keys(r).length,l=t.toString().includes("#"),d=new URL(t.toString(),"http://localhost");return e===exports.Method.GET&&Object.keys(r).length&&(d.search=n.stringify(i(n.parse(d.search,{ignoreQueryPrefix:!0}),r),{encodeValuesOnly:!0,arrayFormat:"brackets"}),r={}),[[o?d.protocol+"//"+d.host:"",s?d.pathname:"",a?d.pathname.substring(1):"",c?d.search:"",l?d.hash:""].join(""),r]}function p(e){return(e=new URL(e.href)).hash="",e}function f(e,t){return document.dispatchEvent(new CustomEvent("inertia:"+e,t))}function v(e){return f("finish",{detail:{visit:e}})}function m(e){return f("navigate",{detail:{page:e}})}(o=exports.Method||(exports.Method={})).GET="get",o.POST="post",o.PUT="put",o.PATCH="patch",o.DELETE="delete";var g=function(){function e(){this.visitId=null}var n=e.prototype;return n.init=function(e){var t=e.resolveComponent,n=e.swapComponent;this.page=e.initialPage,this.resolveComponent=t,this.swapComponent=n,this.handleInitialPageVisit(),this.setupEventListeners()},n.handleInitialPageVisit=function(){this.isBackForwardVisit()?this.handleBackForwardVisit(this.page):this.isLocationVisit()?this.handleLocationVisit(this.page):(this.page.url+=window.location.hash,this.setPage(this.page,{preserveState:!0})),m(this.page)},n.setupEventListeners=function(){window.addEventListener("popstate",this.handlePopstateEvent.bind(this)),document.addEventListener("scroll",a(this.handleScrollEvent.bind(this),100),!0)},n.scrollRegions=function(){return document.querySelectorAll("[scroll-region]")},n.handleScrollEvent=function(e){"function"==typeof e.target.hasAttribute&&e.target.hasAttribute("scroll-region")&&this.saveScrollPositions()},n.saveScrollPositions=function(){this.replaceState(r({},this.page,{scrollRegions:Array.from(this.scrollRegions()).map(function(e){return{top:e.scrollTop,left:e.scrollLeft}})}))},n.resetScrollPositions=function(){var e;document.documentElement.scrollTop=0,document.documentElement.scrollLeft=0,this.scrollRegions().forEach(function(e){e.scrollTop=0,e.scrollLeft=0}),this.saveScrollPositions(),window.location.hash&&(null==(e=document.getElementById(window.location.hash.slice(1)))||e.scrollIntoView())},n.restoreScrollPositions=function(){var e=this;this.page.scrollRegions&&this.scrollRegions().forEach(function(t,n){t.scrollTop=e.page.scrollRegions[n].top,t.scrollLeft=e.page.scrollRegions[n].left})},n.isBackForwardVisit=function(){return window.history.state&&window.performance&&window.performance.getEntriesByType("navigation").length>0&&"back_forward"===window.performance.getEntriesByType("navigation")[0].type},n.handleBackForwardVisit=function(e){var t=this;window.history.state.version=e.version,this.setPage(window.history.state,{preserveScroll:!0,preserveState:!0}).then(function(){t.restoreScrollPositions()})},n.locationVisit=function(e,t){try{window.sessionStorage.setItem("inertiaLocationVisit",JSON.stringify({preserveScroll:t})),window.location.href=e.href,p(window.location).href===p(e).href&&window.location.reload()}catch(e){return!1}},n.isLocationVisit=function(){try{return null!==window.sessionStorage.getItem("inertiaLocationVisit")}catch(e){return!1}},n.handleLocationVisit=function(e){var t,n,i,r,o=this,s=JSON.parse(window.sessionStorage.getItem("inertiaLocationVisit")||"");window.sessionStorage.removeItem("inertiaLocationVisit"),e.url+=window.location.hash,e.rememberedState=null!=(t=null==(n=window.history.state)?void 0:n.rememberedState)?t:{},e.scrollRegions=null!=(i=null==(r=window.history.state)?void 0:r.scrollRegions)?i:[],this.setPage(e,{preserveScroll:s.preserveScroll,preserveState:!0}).then(function(){s.preserveScroll&&o.restoreScrollPositions()})},n.isLocationVisitResponse=function(e){return e&&409===e.status&&e.headers["x-inertia-location"]},n.isInertiaResponse=function(e){return null==e?void 0:e.headers["x-inertia"]},n.createVisitId=function(){return this.visitId={},this.visitId},n.cancelVisit=function(e,t){var n=t.cancelled,i=void 0!==n&&n,r=t.interrupted,o=void 0!==r&&r;!e||e.completed||e.cancelled||e.interrupted||(e.cancelToken.cancel(),e.onCancel(),e.completed=!1,e.cancelled=i,e.interrupted=o,v(e),e.onFinish(e))},n.finishVisit=function(e){e.cancelled||e.interrupted||(e.completed=!0,e.cancelled=!1,e.interrupted=!1,v(e),e.onFinish(e))},n.resolvePreserveOption=function(e,t){return"function"==typeof e?e(t):"errors"===e?Object.keys(t.props.errors||{}).length>0:e},n.visit=function(e,n){var i=this,o=void 0===n?{}:n,a=o.method,l=void 0===a?exports.Method.GET:a,d=o.data,v=void 0===d?{}:d,m=o.replace,g=void 0!==m&&m,w=o.preserveScroll,S=void 0!==w&&w,y=o.preserveState,b=void 0!==y&&y,E=o.only,P=void 0===E?[]:E,I=o.headers,x=void 0===I?{}:I,V=o.errorBag,T=void 0===V?"":V,L=o.forceFormData,O=void 0!==L&&L,C=o.onCancelToken,M=void 0===C?function(){}:C,k=o.onBefore,R=void 0===k?function(){}:k,j=o.onStart,F=void 0===j?function(){}:j,A=o.onProgress,D=void 0===A?function(){}:A,B=o.onFinish,N=void 0===B?function(){}:B,H=o.onCancel,q=void 0===H?function(){}:H,W=o.onSuccess,G=void 0===W?function(){}:W,U=o.onError,X=void 0===U?function(){}:U,J="string"==typeof e?u(e):e;if(!function e(t){return t instanceof File||t instanceof Blob||t instanceof FileList||t instanceof FormData&&Array.from(t.values()).some(function(t){return e(t)})||"object"==typeof t&&null!==t&&void 0!==Object.values(t).find(function(t){return e(t)})}(v)&&!O||v instanceof FormData||(v=c(v)),!(v instanceof FormData)){var K=h(l,J,v),_=K[1];J=u(K[0]),v=_}var z={url:J,method:l,data:v,replace:g,preserveScroll:S,preserveState:b,only:P,headers:x,errorBag:T,forceFormData:O,cancelled:!1,completed:!1,interrupted:!1};if(!1!==R(z)&&function(e){return f("before",{cancelable:!0,detail:{visit:e}})}(z)){this.activeVisit&&this.cancelVisit(this.activeVisit,{interrupted:!0}),this.saveScrollPositions();var Q=this.createVisitId();this.activeVisit=r({},z,{onCancelToken:M,onBefore:R,onStart:F,onProgress:D,onFinish:N,onCancel:q,onSuccess:G,onError:X,cancelToken:t.CancelToken.source()}),M({cancel:function(){i.activeVisit&&i.cancelVisit(i.activeVisit,{cancelled:!0})}}),function(e){f("start",{detail:{visit:e}})}(z),F(z),t({method:l,url:p(J).href,data:l===exports.Method.GET?{}:v,params:l===exports.Method.GET?v:{},cancelToken:this.activeVisit.cancelToken.token,headers:r({},x,{Accept:"text/html, application/xhtml+xml","X-Requested-With":"XMLHttpRequest","X-Inertia":!0},P.length?{"X-Inertia-Partial-Component":this.page.component,"X-Inertia-Partial-Data":P.join(",")}:{},T&&T.length?{"X-Inertia-Error-Bag":T}:{},this.page.version?{"X-Inertia-Version":this.page.version}:{}),onUploadProgress:function(e){v instanceof FormData&&(e.percentage=Math.round(e.loaded/e.total*100),function(e){f("progress",{detail:{progress:e}})}(e),D(e))}}).then(function(e){var t;if(!i.isInertiaResponse(e))return Promise.reject({response:e});var n=e.data;P.length&&n.component===i.page.component&&(n.props=r({},i.page.props,n.props)),S=i.resolvePreserveOption(S,n),(b=i.resolvePreserveOption(b,n))&&null!=(t=window.history.state)&&t.rememberedState&&n.component===i.page.component&&(n.rememberedState=window.history.state.rememberedState);var o=J,s=u(n.url);return o.hash&&!s.hash&&p(o).href===s.href&&(s.hash=o.hash,n.url=s.href),i.setPage(n,{visitId:Q,replace:g,preserveScroll:S,preserveState:b})}).then(function(){var e=i.page.props.errors||{};if(Object.keys(e).length>0){var t=T?e[T]?e[T]:{}:e;return function(e){f("error",{detail:{errors:e}})}(t),X(t)}return f("success",{detail:{page:i.page}}),G(i.page)}).catch(function(e){if(i.isInertiaResponse(e.response))return i.setPage(e.response.data,{visitId:Q});if(i.isLocationVisitResponse(e.response)){var t=u(e.response.headers["x-inertia-location"]),n=J;n.hash&&!t.hash&&p(n).href===t.href&&(t.hash=n.hash),i.locationVisit(t,!0===S)}else{if(!e.response)return Promise.reject(e);f("invalid",{cancelable:!0,detail:{response:e.response}})&&s.show(e.response.data)}}).then(function(){i.activeVisit&&i.finishVisit(i.activeVisit)}).catch(function(e){if(!t.isCancel(e)){var n=f("exception",{cancelable:!0,detail:{exception:e}});if(i.activeVisit&&i.finishVisit(i.activeVisit),n)return Promise.reject(e)}})}},n.setPage=function(e,t){var n=this,i=void 0===t?{}:t,r=i.visitId,o=void 0===r?this.createVisitId():r,s=i.replace,a=void 0!==s&&s,c=i.preserveScroll,l=void 0!==c&&c,d=i.preserveState,h=void 0!==d&&d;return Promise.resolve(this.resolveComponent(e.component)).then(function(t){o===n.visitId&&(e.scrollRegions=e.scrollRegions||[],e.rememberedState=e.rememberedState||{},(a=a||u(e.url).href===window.location.href)?n.replaceState(e):n.pushState(e),n.swapComponent({component:t,page:e,preserveState:h}).then(function(){l||n.resetScrollPositions(),a||m(e)}))})},n.pushState=function(e){this.page=e,window.history.pushState(e,"",e.url)},n.replaceState=function(e){this.page=e,window.history.replaceState(e,"",e.url)},n.handlePopstateEvent=function(e){var t=this;if(null!==e.state){var n=e.state,i=this.createVisitId();Promise.resolve(this.resolveComponent(n.component)).then(function(e){i===t.visitId&&(t.page=n,t.swapComponent({component:e,page:n,preserveState:!1}).then(function(){t.restoreScrollPositions(),m(n)}))})}else{var o=u(this.page.url);o.hash=window.location.hash,this.replaceState(r({},this.page,{url:o.href})),this.resetScrollPositions()}},n.get=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({},n,{method:exports.Method.GET,data:t}))},n.reload=function(e){return void 0===e&&(e={}),this.visit(window.location.href,r({},e,{preserveScroll:!0,preserveState:!0}))},n.replace=function(e,t){var n;return void 0===t&&(t={}),console.warn("Inertia.replace() has been deprecated and will be removed in a future release. Please use Inertia."+(null!=(n=t.method)?n:"get")+"() instead."),this.visit(e,r({preserveState:!0},t,{replace:!0}))},n.post=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.POST,data:t}))},n.put=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.PUT,data:t}))},n.patch=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.PATCH,data:t}))},n.delete=function(e,t){return void 0===t&&(t={}),this.visit(e,r({preserveState:!0},t,{method:exports.Method.DELETE}))},n.remember=function(e,t){var n;void 0===t&&(t="default"),this.replaceState(r({},this.page,{rememberedState:r({},this.page.rememberedState,(n={},n[t]=e,n))}))},n.restore=function(e){var t,n;return void 0===e&&(e="default"),null==(t=window.history.state)||null==(n=t.rememberedState)?void 0:n[e]},n.on=function(e,t){var n=function(e){var n=t(e);e.cancelable&&!e.defaultPrevented&&!1===n&&e.preventDefault()};return document.addEventListener("inertia:"+e,n),function(){return document.removeEventListener("inertia:"+e,n)}},e}(),w={buildDOMElement:function(e){var t=document.createElement("template");t.innerHTML=e;var n=t.content.firstChild;if(!e.startsWith("<script "))return n;var i=document.createElement("script");return i.innerHTML=n.innerHTML,n.getAttributeNames().forEach(function(e){i.setAttribute(e,n.getAttribute(e)||"")}),i},isInertiaManagedElement:function(e){return e.nodeType===Node.ELEMENT_NODE&&null!==e.getAttribute("inertia")},findMatchingElementIndex:function(e,t){var n=e.getAttribute("inertia");return null!==n?t.findIndex(function(e){return e.getAttribute("inertia")===n}):-1},update:a(function(e){var t=this,n=e.map(function(e){return t.buildDOMElement(e)});Array.from(document.head.childNodes).filter(function(e){return t.isInertiaManagedElement(e)}).forEach(function(e){var i=t.findMatchingElementIndex(e,n);if(-1!==i){var r,o=n.splice(i,1)[0];o&&!e.isEqualNode(o)&&(null==e||null==(r=e.parentNode)||r.replaceChild(o,e))}else{var s;null==e||null==(s=e.parentNode)||s.removeChild(e)}}),n.forEach(function(e){return document.head.appendChild(e)})},1)},S=new g;exports.Inertia=S,exports.createHeadManager=function(e,t){var n={},i=0;function r(){var e=Object.values(n).reduce(function(e,t){return e.concat(t)},[]).reduce(function(e,t){if(-1===t.indexOf("<"))return e;if(0===t.indexOf("<title "))return e.title=t,e;var n=t.match(/ inertia="[^"]+"/);return n?e[n[0]]=t:e[Object.keys(e).length]=t,e},{});return Object.values(e)}function o(){e?t(r()):w.update(r())}return{createProvider:function(){var e=function(){var e=i+=1;return n[e]=[],e.toString()}();return{disconnect:function(){return function(e){null!==e&&-1!==Object.keys(n).indexOf(e)&&(delete n[e],o())}(e)},update:function(t){return function(e,t){void 0===t&&(t=[]),null!==e&&Object.keys(n).indexOf(e)>-1&&(n[e]=t),o()}(e,t)}}}}},exports.hrefToUrl=u,exports.mergeDataIntoQueryString=h,exports.shouldIntercept=function(e){var t="a"===e.currentTarget.tagName.toLowerCase();return!(e.target&&null!=e&&e.target.isContentEditable||e.defaultPrevented||t&&e.which>1||t&&e.altKey||t&&e.ctrlKey||t&&e.metaKey||t&&e.shiftKey)},exports.urlWithoutHash=p;
+function e(e){return e&&"object"==typeof e&&"default"in e?e.default:e}var t=e(__webpack_require__(/*! axios */ "./node_modules/axios/index.js")),n=__webpack_require__(/*! qs */ "./node_modules/qs/lib/index.js"),i=e(__webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js"));function r(){return(r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(e[i]=n[i])}return e}).apply(this,arguments)}var o,s={modal:null,listener:null,show:function(e){var t=this;"object"==typeof e&&(e="All Inertia requests must receive a valid Inertia response, however a plain JSON response was received.<hr>"+JSON.stringify(e));var n=document.createElement("html");n.innerHTML=e,n.querySelectorAll("a").forEach(function(e){return e.setAttribute("target","_top")}),this.modal=document.createElement("div"),this.modal.style.position="fixed",this.modal.style.width="100vw",this.modal.style.height="100vh",this.modal.style.padding="50px",this.modal.style.boxSizing="border-box",this.modal.style.backgroundColor="rgba(0, 0, 0, .6)",this.modal.style.zIndex=2e5,this.modal.addEventListener("click",function(){return t.hide()});var i=document.createElement("iframe");if(i.style.backgroundColor="white",i.style.borderRadius="5px",i.style.width="100%",i.style.height="100%",this.modal.appendChild(i),document.body.prepend(this.modal),document.body.style.overflow="hidden",!i.contentWindow)throw new Error("iframe not yet ready.");i.contentWindow.document.open(),i.contentWindow.document.write(n.outerHTML),i.contentWindow.document.close(),this.listener=this.hideOnEscape.bind(this),document.addEventListener("keydown",this.listener)},hide:function(){this.modal.outerHTML="",this.modal=null,document.body.style.overflow="visible",document.removeEventListener("keydown",this.listener)},hideOnEscape:function(e){27===e.keyCode&&this.hide()}};function a(e,t){var n;return function(){var i=arguments,r=this;clearTimeout(n),n=setTimeout(function(){return e.apply(r,[].slice.call(i))},t)}}function c(e,t,n){for(var i in void 0===t&&(t=new FormData),void 0===n&&(n=null),e=e||{})Object.prototype.hasOwnProperty.call(e,i)&&d(t,l(n,i),e[i]);return t}function l(e,t){return e?e+"["+t+"]":t}function d(e,t,n){return Array.isArray(n)?Array.from(n.keys()).forEach(function(i){return d(e,l(t,i.toString()),n[i])}):n instanceof Date?e.append(t,n.toISOString()):n instanceof File?e.append(t,n,n.name):n instanceof Blob?e.append(t,n):"boolean"==typeof n?e.append(t,n?"1":"0"):"string"==typeof n?e.append(t,n):"number"==typeof n?e.append(t,""+n):null==n?e.append(t,""):void c(n,e,t)}function u(e){return new URL(e.toString(),window.location.toString())}function h(e,t,r,o){void 0===o&&(o="brackets");var s=/^https?:\/\//.test(t.toString()),a=s||t.toString().startsWith("/"),c=!a&&!t.toString().startsWith("#")&&!t.toString().startsWith("?"),l=t.toString().includes("?")||e===exports.Method.GET&&Object.keys(r).length,d=t.toString().includes("#"),u=new URL(t.toString(),"http://localhost");return e===exports.Method.GET&&Object.keys(r).length&&(u.search=n.stringify(i(n.parse(u.search,{ignoreQueryPrefix:!0}),r),{encodeValuesOnly:!0,arrayFormat:o}),r={}),[[s?u.protocol+"//"+u.host:"",a?u.pathname:"",c?u.pathname.substring(1):"",l?u.search:"",d?u.hash:""].join(""),r]}function p(e){return(e=new URL(e.href)).hash="",e}function f(e,t){return document.dispatchEvent(new CustomEvent("inertia:"+e,t))}(o=exports.Method||(exports.Method={})).GET="get",o.POST="post",o.PUT="put",o.PATCH="patch",o.DELETE="delete";var v=function(e){return f("finish",{detail:{visit:e}})},m=function(e){return f("navigate",{detail:{page:e}})},g="undefined"==typeof window,w=function(){function e(){this.visitId=null}var n=e.prototype;return n.init=function(e){var t=e.resolveComponent,n=e.swapComponent;this.page=e.initialPage,this.resolveComponent=t,this.swapComponent=n,this.isBackForwardVisit()?this.handleBackForwardVisit(this.page):this.isLocationVisit()?this.handleLocationVisit(this.page):this.handleInitialPageVisit(this.page),this.setupEventListeners()},n.handleInitialPageVisit=function(e){this.page.url+=window.location.hash,this.setPage(e,{preserveState:!0}).then(function(){return m(e)})},n.setupEventListeners=function(){window.addEventListener("popstate",this.handlePopstateEvent.bind(this)),document.addEventListener("scroll",a(this.handleScrollEvent.bind(this),100),!0)},n.scrollRegions=function(){return document.querySelectorAll("[scroll-region]")},n.handleScrollEvent=function(e){"function"==typeof e.target.hasAttribute&&e.target.hasAttribute("scroll-region")&&this.saveScrollPositions()},n.saveScrollPositions=function(){this.replaceState(r({},this.page,{scrollRegions:Array.from(this.scrollRegions()).map(function(e){return{top:e.scrollTop,left:e.scrollLeft}})}))},n.resetScrollPositions=function(){var e;document.documentElement.scrollTop=0,document.documentElement.scrollLeft=0,this.scrollRegions().forEach(function(e){e.scrollTop=0,e.scrollLeft=0}),this.saveScrollPositions(),window.location.hash&&(null==(e=document.getElementById(window.location.hash.slice(1)))||e.scrollIntoView())},n.restoreScrollPositions=function(){var e=this;this.page.scrollRegions&&this.scrollRegions().forEach(function(t,n){var i=e.page.scrollRegions[n];i&&(t.scrollTop=i.top,t.scrollLeft=i.left)})},n.isBackForwardVisit=function(){return window.history.state&&window.performance&&window.performance.getEntriesByType("navigation").length>0&&"back_forward"===window.performance.getEntriesByType("navigation")[0].type},n.handleBackForwardVisit=function(e){var t=this;window.history.state.version=e.version,this.setPage(window.history.state,{preserveScroll:!0,preserveState:!0}).then(function(){t.restoreScrollPositions(),m(e)})},n.locationVisit=function(e,t){try{window.sessionStorage.setItem("inertiaLocationVisit",JSON.stringify({preserveScroll:t})),window.location.href=e.href,p(window.location).href===p(e).href&&window.location.reload()}catch(e){return!1}},n.isLocationVisit=function(){try{return null!==window.sessionStorage.getItem("inertiaLocationVisit")}catch(e){return!1}},n.handleLocationVisit=function(e){var t,n,i,r,o=this,s=JSON.parse(window.sessionStorage.getItem("inertiaLocationVisit")||"");window.sessionStorage.removeItem("inertiaLocationVisit"),e.url+=window.location.hash,e.rememberedState=null!=(t=null==(n=window.history.state)?void 0:n.rememberedState)?t:{},e.scrollRegions=null!=(i=null==(r=window.history.state)?void 0:r.scrollRegions)?i:[],this.setPage(e,{preserveScroll:s.preserveScroll,preserveState:!0}).then(function(){s.preserveScroll&&o.restoreScrollPositions(),m(e)})},n.isLocationVisitResponse=function(e){return e&&409===e.status&&e.headers["x-inertia-location"]},n.isInertiaResponse=function(e){return null==e?void 0:e.headers["x-inertia"]},n.createVisitId=function(){return this.visitId={},this.visitId},n.cancelVisit=function(e,t){var n=t.cancelled,i=void 0!==n&&n,r=t.interrupted,o=void 0!==r&&r;!e||e.completed||e.cancelled||e.interrupted||(e.cancelToken.cancel(),e.onCancel(),e.completed=!1,e.cancelled=i,e.interrupted=o,v(e),e.onFinish(e))},n.finishVisit=function(e){e.cancelled||e.interrupted||(e.completed=!0,e.cancelled=!1,e.interrupted=!1,v(e),e.onFinish(e))},n.resolvePreserveOption=function(e,t){return"function"==typeof e?e(t):"errors"===e?Object.keys(t.props.errors||{}).length>0:e},n.visit=function(e,n){var i=this,o=void 0===n?{}:n,a=o.method,l=void 0===a?exports.Method.GET:a,d=o.data,v=void 0===d?{}:d,m=o.replace,g=void 0!==m&&m,w=o.preserveScroll,y=void 0!==w&&w,S=o.preserveState,b=void 0!==S&&S,E=o.only,P=void 0===E?[]:E,I=o.headers,x=void 0===I?{}:I,V=o.errorBag,T=void 0===V?"":V,L=o.forceFormData,O=void 0!==L&&L,k=o.onCancelToken,C=void 0===k?function(){}:k,M=o.onBefore,A=void 0===M?function(){}:M,F=o.onStart,R=void 0===F?function(){}:F,j=o.onProgress,D=void 0===j?function(){}:j,B=o.onFinish,q=void 0===B?function(){}:B,N=o.onCancel,H=void 0===N?function(){}:N,W=o.onSuccess,G=void 0===W?function(){}:W,U=o.onError,X=void 0===U?function(){}:U,J=o.queryStringArrayFormat,K=void 0===J?"brackets":J,_="string"==typeof e?u(e):e;if(!function e(t){return t instanceof File||t instanceof Blob||t instanceof FileList&&t.length>0||t instanceof FormData&&Array.from(t.values()).some(function(t){return e(t)})||"object"==typeof t&&null!==t&&Object.values(t).some(function(t){return e(t)})}(v)&&!O||v instanceof FormData||(v=c(v)),!(v instanceof FormData)){var z=h(l,_,v,K),Q=z[1];_=u(z[0]),v=Q}var Y={url:_,method:l,data:v,replace:g,preserveScroll:y,preserveState:b,only:P,headers:x,errorBag:T,forceFormData:O,queryStringArrayFormat:K,cancelled:!1,completed:!1,interrupted:!1};if(!1!==A(Y)&&function(e){return f("before",{cancelable:!0,detail:{visit:e}})}(Y)){this.activeVisit&&this.cancelVisit(this.activeVisit,{interrupted:!0}),this.saveScrollPositions();var Z=this.createVisitId();this.activeVisit=r({},Y,{onCancelToken:C,onBefore:A,onStart:R,onProgress:D,onFinish:q,onCancel:H,onSuccess:G,onError:X,queryStringArrayFormat:K,cancelToken:t.CancelToken.source()}),C({cancel:function(){i.activeVisit&&i.cancelVisit(i.activeVisit,{cancelled:!0})}}),function(e){f("start",{detail:{visit:e}})}(Y),R(Y),t({method:l,url:p(_).href,data:l===exports.Method.GET?{}:v,params:l===exports.Method.GET?v:{},cancelToken:this.activeVisit.cancelToken.token,headers:r({},x,{Accept:"text/html, application/xhtml+xml","X-Requested-With":"XMLHttpRequest","X-Inertia":!0},P.length?{"X-Inertia-Partial-Component":this.page.component,"X-Inertia-Partial-Data":P.join(",")}:{},T&&T.length?{"X-Inertia-Error-Bag":T}:{},this.page.version?{"X-Inertia-Version":this.page.version}:{}),onUploadProgress:function(e){v instanceof FormData&&(e.percentage=Math.round(e.loaded/e.total*100),function(e){f("progress",{detail:{progress:e}})}(e),D(e))}}).then(function(e){var t;if(!i.isInertiaResponse(e))return Promise.reject({response:e});var n=e.data;P.length&&n.component===i.page.component&&(n.props=r({},i.page.props,n.props)),y=i.resolvePreserveOption(y,n),(b=i.resolvePreserveOption(b,n))&&null!=(t=window.history.state)&&t.rememberedState&&n.component===i.page.component&&(n.rememberedState=window.history.state.rememberedState);var o=_,s=u(n.url);return o.hash&&!s.hash&&p(o).href===s.href&&(s.hash=o.hash,n.url=s.href),i.setPage(n,{visitId:Z,replace:g,preserveScroll:y,preserveState:b})}).then(function(){var e=i.page.props.errors||{};if(Object.keys(e).length>0){var t=T?e[T]?e[T]:{}:e;return function(e){f("error",{detail:{errors:e}})}(t),X(t)}return f("success",{detail:{page:i.page}}),G(i.page)}).catch(function(e){if(i.isInertiaResponse(e.response))return i.setPage(e.response.data,{visitId:Z});if(i.isLocationVisitResponse(e.response)){var t=u(e.response.headers["x-inertia-location"]),n=_;n.hash&&!t.hash&&p(n).href===t.href&&(t.hash=n.hash),i.locationVisit(t,!0===y)}else{if(!e.response)return Promise.reject(e);f("invalid",{cancelable:!0,detail:{response:e.response}})&&s.show(e.response.data)}}).then(function(){i.activeVisit&&i.finishVisit(i.activeVisit)}).catch(function(e){if(!t.isCancel(e)){var n=f("exception",{cancelable:!0,detail:{exception:e}});if(i.activeVisit&&i.finishVisit(i.activeVisit),n)return Promise.reject(e)}})}},n.setPage=function(e,t){var n=this,i=void 0===t?{}:t,r=i.visitId,o=void 0===r?this.createVisitId():r,s=i.replace,a=void 0!==s&&s,c=i.preserveScroll,l=void 0!==c&&c,d=i.preserveState,h=void 0!==d&&d;return Promise.resolve(this.resolveComponent(e.component)).then(function(t){o===n.visitId&&(e.scrollRegions=e.scrollRegions||[],e.rememberedState=e.rememberedState||{},(a=a||u(e.url).href===window.location.href)?n.replaceState(e):n.pushState(e),n.swapComponent({component:t,page:e,preserveState:h}).then(function(){l||n.resetScrollPositions(),a||m(e)}))})},n.pushState=function(e){this.page=e,window.history.pushState(e,"",e.url)},n.replaceState=function(e){this.page=e,window.history.replaceState(e,"",e.url)},n.handlePopstateEvent=function(e){var t=this;if(null!==e.state){var n=e.state,i=this.createVisitId();Promise.resolve(this.resolveComponent(n.component)).then(function(e){i===t.visitId&&(t.page=n,t.swapComponent({component:e,page:n,preserveState:!1}).then(function(){t.restoreScrollPositions(),m(n)}))})}else{var o=u(this.page.url);o.hash=window.location.hash,this.replaceState(r({},this.page,{url:o.href})),this.resetScrollPositions()}},n.get=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({},n,{method:exports.Method.GET,data:t}))},n.reload=function(e){return void 0===e&&(e={}),this.visit(window.location.href,r({},e,{preserveScroll:!0,preserveState:!0}))},n.replace=function(e,t){var n;return void 0===t&&(t={}),console.warn("Inertia.replace() has been deprecated and will be removed in a future release. Please use Inertia."+(null!=(n=t.method)?n:"get")+"() instead."),this.visit(e,r({preserveState:!0},t,{replace:!0}))},n.post=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.POST,data:t}))},n.put=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.PUT,data:t}))},n.patch=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.PATCH,data:t}))},n.delete=function(e,t){return void 0===t&&(t={}),this.visit(e,r({preserveState:!0},t,{method:exports.Method.DELETE}))},n.remember=function(e,t){var n,i;void 0===t&&(t="default"),g||this.replaceState(r({},this.page,{rememberedState:r({},null==(n=this.page)?void 0:n.rememberedState,(i={},i[t]=e,i))}))},n.restore=function(e){var t,n;if(void 0===e&&(e="default"),!g)return null==(t=window.history.state)||null==(n=t.rememberedState)?void 0:n[e]},n.on=function(e,t){var n=function(e){var n=t(e);e.cancelable&&!e.defaultPrevented&&!1===n&&e.preventDefault()};return document.addEventListener("inertia:"+e,n),function(){return document.removeEventListener("inertia:"+e,n)}},e}(),y={buildDOMElement:function(e){var t=document.createElement("template");t.innerHTML=e;var n=t.content.firstChild;if(!e.startsWith("<script "))return n;var i=document.createElement("script");return i.innerHTML=n.innerHTML,n.getAttributeNames().forEach(function(e){i.setAttribute(e,n.getAttribute(e)||"")}),i},isInertiaManagedElement:function(e){return e.nodeType===Node.ELEMENT_NODE&&null!==e.getAttribute("inertia")},findMatchingElementIndex:function(e,t){var n=e.getAttribute("inertia");return null!==n?t.findIndex(function(e){return e.getAttribute("inertia")===n}):-1},update:a(function(e){var t=this,n=e.map(function(e){return t.buildDOMElement(e)});Array.from(document.head.childNodes).filter(function(e){return t.isInertiaManagedElement(e)}).forEach(function(e){var i=t.findMatchingElementIndex(e,n);if(-1!==i){var r,o=n.splice(i,1)[0];o&&!e.isEqualNode(o)&&(null==e||null==(r=e.parentNode)||r.replaceChild(o,e))}else{var s;null==e||null==(s=e.parentNode)||s.removeChild(e)}}),n.forEach(function(e){return document.head.appendChild(e)})},1)},S=new w;exports.Inertia=S,exports.createHeadManager=function(e,t,n){var i={},r=0;function o(){var e=Object.values(i).reduce(function(e,t){return e.concat(t)},[]).reduce(function(e,n){if(-1===n.indexOf("<"))return e;if(0===n.indexOf("<title ")){var i=n.match(/(<title [^>]+>)(.*?)(<\/title>)/);return e.title=i?""+i[1]+t(i[2])+i[3]:n,e}var r=n.match(/ inertia="[^"]+"/);return r?e[r[0]]=n:e[Object.keys(e).length]=n,e},{});return Object.values(e)}function s(){e?n(o()):y.update(o())}return{createProvider:function(){var e=function(){var e=r+=1;return i[e]=[],e.toString()}();return{update:function(t){return function(e,t){void 0===t&&(t=[]),null!==e&&Object.keys(i).indexOf(e)>-1&&(i[e]=t),s()}(e,t)},disconnect:function(){return function(e){null!==e&&-1!==Object.keys(i).indexOf(e)&&(delete i[e],s())}(e)}}}}},exports.hrefToUrl=u,exports.mergeDataIntoQueryString=h,exports.shouldIntercept=function(e){var t="a"===e.currentTarget.tagName.toLowerCase();return!(e.target&&null!=e&&e.target.isContentEditable||e.defaultPrevented||t&&e.which>1||t&&e.altKey||t&&e.ctrlKey||t&&e.metaKey||t&&e.shiftKey)},exports.urlWithoutHash=p;
 //# sourceMappingURL=index.js.map
 
 
@@ -4189,9 +4189,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/Layouts/Authenticated */ "./resources/js/Layouts/Authenticated.js");
 /* harmony import */ var _Components_CategorySelectInput__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/Components/CategorySelectInput */ "./resources/js/Components/CategorySelectInput.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -4690,9 +4690,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var _window$document$getE;
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -46869,7 +46869,16 @@ var weakRefDeref = hasWeakRef ? WeakRef.prototype.deref : null;
 var booleanValueOf = Boolean.prototype.valueOf;
 var objectToString = Object.prototype.toString;
 var functionToString = Function.prototype.toString;
-var match = String.prototype.match;
+var $match = String.prototype.match;
+var $slice = String.prototype.slice;
+var $replace = String.prototype.replace;
+var $toUpperCase = String.prototype.toUpperCase;
+var $toLowerCase = String.prototype.toLowerCase;
+var $test = RegExp.prototype.test;
+var $concat = Array.prototype.concat;
+var $join = Array.prototype.join;
+var $arrSlice = Array.prototype.slice;
+var $floor = Math.floor;
 var bigIntValueOf = typeof BigInt === 'function' ? BigInt.prototype.valueOf : null;
 var gOPS = Object.getOwnPropertySymbols;
 var symToString = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? Symbol.prototype.toString : null;
@@ -46887,6 +46896,28 @@ var gPO = (typeof Reflect === 'function' ? Reflect.getPrototypeOf : Object.getPr
         }
         : null
 );
+
+function addNumericSeparator(num, str) {
+    if (
+        num === Infinity
+        || num === -Infinity
+        || num !== num
+        || (num && num > -1000 && num < 1000)
+        || $test.call(/e/, str)
+    ) {
+        return str;
+    }
+    var sepRegex = /[0-9](?=(?:[0-9]{3})+(?![0-9]))/g;
+    if (typeof num === 'number') {
+        var int = num < 0 ? -$floor(-num) : $floor(num); // trunc(num)
+        if (int !== num) {
+            var intStr = String(int);
+            var dec = $slice.call(str, intStr.length + 1);
+            return $replace.call(intStr, sepRegex, '$&_') + '.' + $replace.call($replace.call(dec, /([0-9]{3})/g, '$&_'), /_$/, '');
+        }
+    }
+    return $replace.call(str, sepRegex, '$&_');
+}
 
 var inspectCustom = (__webpack_require__(/*! ./util.inspect */ "?2128").custom);
 var inspectSymbol = inspectCustom && isSymbol(inspectCustom) ? inspectCustom : null;
@@ -46916,8 +46947,12 @@ module.exports = function inspect_(obj, options, depth, seen) {
         && opts.indent !== '\t'
         && !(parseInt(opts.indent, 10) === opts.indent && opts.indent > 0)
     ) {
-        throw new TypeError('options "indent" must be "\\t", an integer > 0, or `null`');
+        throw new TypeError('option "indent" must be "\\t", an integer > 0, or `null`');
     }
+    if (has(opts, 'numericSeparator') && typeof opts.numericSeparator !== 'boolean') {
+        throw new TypeError('option "numericSeparator", if provided, must be `true` or `false`');
+    }
+    var numericSeparator = opts.numericSeparator;
 
     if (typeof obj === 'undefined') {
         return 'undefined';
@@ -46936,10 +46971,12 @@ module.exports = function inspect_(obj, options, depth, seen) {
         if (obj === 0) {
             return Infinity / obj > 0 ? '0' : '-0';
         }
-        return String(obj);
+        var str = String(obj);
+        return numericSeparator ? addNumericSeparator(obj, str) : str;
     }
     if (typeof obj === 'bigint') {
-        return String(obj) + 'n';
+        var bigIntStr = String(obj) + 'n';
+        return numericSeparator ? addNumericSeparator(obj, bigIntStr) : bigIntStr;
     }
 
     var maxDepth = typeof opts.depth === 'undefined' ? 5 : opts.depth;
@@ -46958,7 +46995,7 @@ module.exports = function inspect_(obj, options, depth, seen) {
 
     function inspect(value, from, noIndent) {
         if (from) {
-            seen = seen.slice();
+            seen = $arrSlice.call(seen);
             seen.push(from);
         }
         if (noIndent) {
@@ -46976,21 +47013,21 @@ module.exports = function inspect_(obj, options, depth, seen) {
     if (typeof obj === 'function') {
         var name = nameOf(obj);
         var keys = arrObjKeys(obj, inspect);
-        return '[Function' + (name ? ': ' + name : ' (anonymous)') + ']' + (keys.length > 0 ? ' { ' + keys.join(', ') + ' }' : '');
+        return '[Function' + (name ? ': ' + name : ' (anonymous)') + ']' + (keys.length > 0 ? ' { ' + $join.call(keys, ', ') + ' }' : '');
     }
     if (isSymbol(obj)) {
-        var symString = hasShammedSymbols ? String(obj).replace(/^(Symbol\(.*\))_[^)]*$/, '$1') : symToString.call(obj);
+        var symString = hasShammedSymbols ? $replace.call(String(obj), /^(Symbol\(.*\))_[^)]*$/, '$1') : symToString.call(obj);
         return typeof obj === 'object' && !hasShammedSymbols ? markBoxed(symString) : symString;
     }
     if (isElement(obj)) {
-        var s = '<' + String(obj.nodeName).toLowerCase();
+        var s = '<' + $toLowerCase.call(String(obj.nodeName));
         var attrs = obj.attributes || [];
         for (var i = 0; i < attrs.length; i++) {
             s += ' ' + attrs[i].name + '=' + wrapQuotes(quote(attrs[i].value), 'double', opts);
         }
         s += '>';
         if (obj.childNodes && obj.childNodes.length) { s += '...'; }
-        s += '</' + String(obj.nodeName).toLowerCase() + '>';
+        s += '</' + $toLowerCase.call(String(obj.nodeName)) + '>';
         return s;
     }
     if (isArray(obj)) {
@@ -46999,12 +47036,15 @@ module.exports = function inspect_(obj, options, depth, seen) {
         if (indent && !singleLineValues(xs)) {
             return '[' + indentedJoin(xs, indent) + ']';
         }
-        return '[ ' + xs.join(', ') + ' ]';
+        return '[ ' + $join.call(xs, ', ') + ' ]';
     }
     if (isError(obj)) {
         var parts = arrObjKeys(obj, inspect);
+        if ('cause' in obj && !isEnumerable.call(obj, 'cause')) {
+            return '{ [' + String(obj) + '] ' + $join.call($concat.call('[cause]: ' + inspect(obj.cause), parts), ', ') + ' }';
+        }
         if (parts.length === 0) { return '[' + String(obj) + ']'; }
-        return '{ [' + String(obj) + '] ' + parts.join(', ') + ' }';
+        return '{ [' + String(obj) + '] ' + $join.call(parts, ', ') + ' }';
     }
     if (typeof obj === 'object' && customInspect) {
         if (inspectSymbol && typeof obj[inspectSymbol] === 'function') {
@@ -47052,14 +47092,14 @@ module.exports = function inspect_(obj, options, depth, seen) {
         var ys = arrObjKeys(obj, inspect);
         var isPlainObject = gPO ? gPO(obj) === Object.prototype : obj instanceof Object || obj.constructor === Object;
         var protoTag = obj instanceof Object ? '' : 'null prototype';
-        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? toStr(obj).slice(8, -1) : protoTag ? 'Object' : '';
+        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr(obj), 8, -1) : protoTag ? 'Object' : '';
         var constructorTag = isPlainObject || typeof obj.constructor !== 'function' ? '' : obj.constructor.name ? obj.constructor.name + ' ' : '';
-        var tag = constructorTag + (stringTag || protoTag ? '[' + [].concat(stringTag || [], protoTag || []).join(': ') + '] ' : '');
+        var tag = constructorTag + (stringTag || protoTag ? '[' + $join.call($concat.call([], stringTag || [], protoTag || []), ': ') + '] ' : '');
         if (ys.length === 0) { return tag + '{}'; }
         if (indent) {
             return tag + '{' + indentedJoin(ys, indent) + '}';
         }
-        return tag + '{ ' + ys.join(', ') + ' }';
+        return tag + '{ ' + $join.call(ys, ', ') + ' }';
     }
     return String(obj);
 };
@@ -47070,7 +47110,7 @@ function wrapQuotes(s, defaultStyle, opts) {
 }
 
 function quote(s) {
-    return String(s).replace(/"/g, '&quot;');
+    return $replace.call(String(s), /"/g, '&quot;');
 }
 
 function isArray(obj) { return toStr(obj) === '[object Array]' && (!toStringTag || !(typeof obj === 'object' && toStringTag in obj)); }
@@ -47121,7 +47161,7 @@ function toStr(obj) {
 
 function nameOf(f) {
     if (f.name) { return f.name; }
-    var m = match.call(functionToString.call(f), /^function\s*([\w$]+)/);
+    var m = $match.call(functionToString.call(f), /^function\s*([\w$]+)/);
     if (m) { return m[1]; }
     return null;
 }
@@ -47221,10 +47261,10 @@ function inspectString(str, opts) {
     if (str.length > opts.maxStringLength) {
         var remaining = str.length - opts.maxStringLength;
         var trailer = '... ' + remaining + ' more character' + (remaining > 1 ? 's' : '');
-        return inspectString(str.slice(0, opts.maxStringLength), opts) + trailer;
+        return inspectString($slice.call(str, 0, opts.maxStringLength), opts) + trailer;
     }
     // eslint-disable-next-line no-control-regex
-    var s = str.replace(/(['\\])/g, '\\$1').replace(/[\x00-\x1f]/g, lowbyte);
+    var s = $replace.call($replace.call(str, /(['\\])/g, '\\$1'), /[\x00-\x1f]/g, lowbyte);
     return wrapQuotes(s, 'single', opts);
 }
 
@@ -47238,7 +47278,7 @@ function lowbyte(c) {
         13: 'r'
     }[n];
     if (x) { return '\\' + x; }
-    return '\\x' + (n < 0x10 ? '0' : '') + n.toString(16).toUpperCase();
+    return '\\x' + (n < 0x10 ? '0' : '') + $toUpperCase.call(n.toString(16));
 }
 
 function markBoxed(str) {
@@ -47250,7 +47290,7 @@ function weakCollectionOf(type) {
 }
 
 function collectionOf(type, size, entries, indent) {
-    var joinedEntries = indent ? indentedJoin(entries, indent) : entries.join(', ');
+    var joinedEntries = indent ? indentedJoin(entries, indent) : $join.call(entries, ', ');
     return type + ' (' + size + ') {' + joinedEntries + '}';
 }
 
@@ -47268,20 +47308,20 @@ function getIndent(opts, depth) {
     if (opts.indent === '\t') {
         baseIndent = '\t';
     } else if (typeof opts.indent === 'number' && opts.indent > 0) {
-        baseIndent = Array(opts.indent + 1).join(' ');
+        baseIndent = $join.call(Array(opts.indent + 1), ' ');
     } else {
         return null;
     }
     return {
         base: baseIndent,
-        prev: Array(depth + 1).join(baseIndent)
+        prev: $join.call(Array(depth + 1), baseIndent)
     };
 }
 
 function indentedJoin(xs, indent) {
     if (xs.length === 0) { return ''; }
     var lineJoiner = '\n' + indent.prev + indent.base;
-    return lineJoiner + xs.join(',' + lineJoiner) + '\n' + indent.prev;
+    return lineJoiner + $join.call(xs, ',' + lineJoiner) + '\n' + indent.prev;
 }
 
 function arrObjKeys(obj, inspect) {
@@ -47308,7 +47348,7 @@ function arrObjKeys(obj, inspect) {
         if (hasShammedSymbols && symMap['$' + key] instanceof Symbol) {
             // this is to prevent shammed Symbols, which are stored as strings, from being included in the string key section
             continue; // eslint-disable-line no-restricted-syntax, no-continue
-        } else if ((/[^\w$]/).test(key)) {
+        } else if ($test.call(/[^\w$]/, key)) {
             xs.push(inspect(key, obj) + ': ' + inspect(obj[key], obj));
         } else {
             xs.push(key + ': ' + inspect(obj[key], obj));
@@ -47722,7 +47762,7 @@ var parseObject = function (chain, val, options, valuesParsed) {
             ) {
                 obj = [];
                 obj[index] = leaf;
-            } else {
+            } else if (cleanRoot !== '__proto__') {
                 obj[cleanRoot] = leaf;
             }
         }
@@ -47940,7 +47980,7 @@ var stringify = function stringify(
     var tmpSc = sideChannel;
     var step = 0;
     var findFlag = false;
-    while ((tmpSc = tmpSc.get(sentinel)) !== undefined && !findFlag) {
+    while ((tmpSc = tmpSc.get(sentinel)) !== void undefined && !findFlag) {
         // Where object last appeared in the ref tree
         var pos = tmpSc.get(object);
         step += 1;
@@ -48002,7 +48042,7 @@ var stringify = function stringify(
     var objKeys;
     if (generateArrayPrefix === 'comma' && isArray(obj)) {
         // we need to join elements in
-        objKeys = [{ value: obj.length > 0 ? obj.join(',') || null : undefined }];
+        objKeys = [{ value: obj.length > 0 ? obj.join(',') || null : void undefined }];
     } else if (isArray(filter)) {
         objKeys = filter;
     } else {
@@ -48012,7 +48052,7 @@ var stringify = function stringify(
 
     for (var j = 0; j < objKeys.length; ++j) {
         var key = objKeys[j];
-        var value = typeof key === 'object' && key.value !== undefined ? key.value : obj[key];
+        var value = typeof key === 'object' && typeof key.value !== 'undefined' ? key.value : obj[key];
 
         if (skipNulls && value === null) {
             continue;
@@ -48052,7 +48092,7 @@ var normalizeStringifyOptions = function normalizeStringifyOptions(opts) {
         return defaults;
     }
 
-    if (opts.encoder !== null && opts.encoder !== undefined && typeof opts.encoder !== 'function') {
+    if (opts.encoder !== null && typeof opts.encoder !== 'undefined' && typeof opts.encoder !== 'function') {
         throw new TypeError('Encoder has to be a function.');
     }
 
@@ -74767,9 +74807,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /**
- * react-number-format - 4.8.0
+ * react-number-format - 4.9.1
  * Author : Sudhanshu Yadav
- * Copyright (c) 2016, 2021 to Sudhanshu Yadav, released under the MIT license.
+ * Copyright (c) 2016, 2022 to Sudhanshu Yadav, released under the MIT license.
  * https://github.com/s-yadav/react-number-format
  */
 
@@ -75442,7 +75482,7 @@ var NumberFormat = /*@__PURE__*/(function (superclass) {
       }
     }
 
-    return (numStr.match(/\d/g) || []).join('');
+    return (numStr.match(this.getNumberRegex(true)) || []).join('');
   };
 
   NumberFormat.prototype.removeFormatting = function removeFormatting (val        ) {
@@ -75460,7 +75500,7 @@ var NumberFormat = /*@__PURE__*/(function (superclass) {
       //condition need to be handled if format method is provide,
       val = removeFormatting(val);
     } else {
-      val = (val.match(/\d/g) || []).join('');
+      val = (val.match(this.getNumberRegex(true)) || []).join('');
     }
     return val;
   };
@@ -75807,33 +75847,33 @@ var NumberFormat = /*@__PURE__*/(function (superclass) {
     var lastValue = ref$1.value;
 
     if (input) {
-      //set caret position, and value imperatively when element is provided
-      if (setCaretPosition) {
-        //calculate caret position if not defined
-        if (!caretPos) {
-          var inputValue = params.inputValue || input.value;
+      //calculate caret position if not defined
+      if (caretPos === undefined && setCaretPosition) {
+        var inputValue = params.inputValue || input.value;
 
-          var currentCaretPosition = getCurrentCaretPosition(input);
+        var currentCaretPosition = getCurrentCaretPosition(input);
 
-          /**
-           * set the value imperatively, this is required for IE fix
-           * This is also required as if new caret position is beyond the previous value.
-           * Caret position will not be set correctly
-           */
-          input.value = formattedValue;
-
-          //get the caret position
-          caretPos = this.getCaretPosition(inputValue, formattedValue, currentCaretPosition);
-        }
-
-        //set caret position
-        this.setPatchedCaretPosition(input, caretPos, formattedValue);
-      } else {
         /**
-         * if we are not setting caret position set the value imperatively.
-         * This is required on onBlur method
+         * set the value imperatively, this is required for IE fix
+         * This is also required as if new caret position is beyond the previous value.
+         * Caret position will not be set correctly
          */
         input.value = formattedValue;
+
+        //get the caret position
+        caretPos = this.getCaretPosition(inputValue, formattedValue, currentCaretPosition);
+      }
+
+      /**
+       * set the value imperatively, as we set the caret position as well imperatively.
+       * This is to keep value and caret position in sync
+       */
+      input.value = formattedValue;
+
+      //set caret position, and value imperatively when element is provided
+      if (setCaretPosition) {
+        //set caret position
+        this.setPatchedCaretPosition(input, caretPos, formattedValue);
       }
     }
 
@@ -76335,6 +76375,9 @@ function cssTransition(_ref) {
     function onEntered(e) {
       if (e.target !== nodeRef.current) return;
       var node = nodeRef.current;
+      node.dispatchEvent(new Event("d"
+      /* ENTRANCE_ANIMATION_END */
+      ));
       node.removeEventListener('animationend', onEntered);
 
       if (animationStep.current === 0
@@ -76421,43 +76464,6 @@ var eventManager = {
   }
 };
 
-/**
- * `useKeeper` is a helper around `useRef`.
- *
- * You don't need to access the `.current`property to get the value
- * If refresh is set to true. The ref will be updated every render
- */
-
-function useKeeper(arg, refresh) {
-  if (refresh === void 0) {
-    refresh = false;
-  }
-
-  var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(arg);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (refresh) ref.current = arg;
-  });
-  return ref.current;
-}
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 0
-    /* ADD */
-    :
-      return [].concat(state, [action.toastId]).filter(function (id) {
-        return id !== action.staleId;
-      });
-
-    case 1
-    /* REMOVE */
-    :
-      return isToastIdValid(action.toastId) ? state.filter(function (id) {
-        return id !== action.toastId;
-      }) : [];
-  }
-}
-
 var _excluded = ["delay", "staleId"];
 function useToastContainer(props) {
   var _useReducer = (0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(function (x) {
@@ -76465,24 +76471,29 @@ function useToastContainer(props) {
   }, 0),
       forceUpdate = _useReducer[1];
 
-  var _useReducer2 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(reducer, []),
-      toast = _useReducer2[0],
-      dispatch = _useReducer2[1];
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      toastIds = _useState[0],
+      setToastIds = _useState[1];
 
   var containerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var toastCount = useKeeper(0);
-  var queue = useKeeper([]);
-  var collection = useKeeper({});
-  var instance = useKeeper({
+  var toastToRender = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(new Map()).current;
+
+  var isToastActive = function isToastActive(id) {
+    return toastIds.indexOf(id) !== -1;
+  };
+
+  var instance = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
     toastKey: 1,
     displayedToast: 0,
+    count: 0,
+    queue: [],
     props: props,
     containerId: null,
     isToastActive: isToastActive,
     getToast: function getToast(id) {
-      return collection[id] || null;
+      return toastToRender.get(id);
     }
-  });
+  }).current;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     instance.containerId = props.containerId;
     eventManager.cancelEmit(3
@@ -76506,43 +76517,38 @@ function useToastContainer(props) {
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     instance.isToastActive = isToastActive;
-    instance.displayedToast = toast.length;
+    instance.displayedToast = toastIds.length;
     eventManager.emit(4
     /* Change */
-    , toast.length, props.containerId);
-  }, [toast]);
+    , toastIds.length, props.containerId);
+  }, [toastIds]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     instance.props = props;
   });
-
-  function isToastActive(id) {
-    return toast.indexOf(id) !== -1;
-  }
 
   function clearWaitingQueue(_ref) {
     var containerId = _ref.containerId;
     var limit = instance.props.limit;
 
     if (limit && (!containerId || instance.containerId === containerId)) {
-      toastCount -= queue.length;
-      queue = [];
+      instance.count -= instance.queue.length;
+      instance.queue = [];
     }
   }
 
   function removeToast(toastId) {
-    dispatch({
-      type: 1
-      /* REMOVE */
-      ,
-      toastId: toastId
+    setToastIds(function (state) {
+      return isToastIdValid(toastId) ? state.filter(function (id) {
+        return id !== toastId;
+      }) : [];
     });
   }
 
   function dequeueToast() {
-    var _queue$shift = queue.shift(),
-        toastContent = _queue$shift.toastContent,
-        toastProps = _queue$shift.toastProps,
-        staleId = _queue$shift.staleId;
+    var _instance$queue$shift = instance.queue.shift(),
+        toastContent = _instance$queue$shift.toastContent,
+        toastProps = _instance$queue$shift.toastProps,
+        staleId = _instance$queue$shift.staleId;
 
     appendToast(toastContent, toastProps, staleId);
   }
@@ -76553,20 +76559,15 @@ function useToastContainer(props) {
    */
 
 
-  function isNotValid(_ref2) {
-    var containerId = _ref2.containerId,
-        toastId = _ref2.toastId,
-        updateId = _ref2.updateId;
-    return !containerRef.current || instance.props.enableMultiContainer && containerId !== instance.props.containerId || collection[toastId] && updateId == null ? true : false;
-  } // this function and all the function called inside needs to rely on ref(`useKeeper`)
+  function isNotValid(options) {
+    return !containerRef.current || instance.props.enableMultiContainer && options.containerId !== instance.props.containerId || toastToRender.has(options.toastId) && options.updateId == null;
+  } // this function and all the function called inside needs to rely on refs
 
 
-  function buildToast(content, _ref3) {
-    var _options$icon;
-
-    var delay = _ref3.delay,
-        staleId = _ref3.staleId,
-        options = _objectWithoutPropertiesLoose(_ref3, _excluded);
+  function buildToast(content, _ref2) {
+    var delay = _ref2.delay,
+        staleId = _ref2.staleId,
+        options = _objectWithoutPropertiesLoose(_ref2, _excluded);
 
     if (!canBeRendered(content) || isNotValid(options)) return;
     var toastId = options.toastId,
@@ -76578,14 +76579,14 @@ function useToastContainer(props) {
       return removeToast(toastId);
     };
 
-    var isNotAnUpdate = options.updateId == null;
-    if (isNotAnUpdate) toastCount++;
+    var isNotAnUpdate = updateId == null;
+    if (isNotAnUpdate) instance.count++;
     var toastProps = {
       toastId: toastId,
       updateId: updateId,
       isLoading: options.isLoading,
       theme: options.theme || props.theme,
-      icon: (_options$icon = options.icon) != null ? _options$icon : props.icon,
+      icon: options.icon != null ? options.icon : props.icon,
       isIn: false,
       key: options.key || instance.toastKey++,
       type: options.type,
@@ -76602,7 +76603,7 @@ function useToastContainer(props) {
       pauseOnHover: isBool(options.pauseOnHover) ? options.pauseOnHover : props.pauseOnHover,
       pauseOnFocusLoss: isBool(options.pauseOnFocusLoss) ? options.pauseOnFocusLoss : props.pauseOnFocusLoss,
       draggable: isBool(options.draggable) ? options.draggable : props.draggable,
-      draggablePercent: isNum(options.draggablePercent) ? options.draggablePercent : props.draggablePercent,
+      draggablePercent: options.draggablePercent || props.draggablePercent,
       draggableDirection: options.draggableDirection || props.draggableDirection,
       closeOnClick: isBool(options.closeOnClick) ? options.closeOnClick : props.closeOnClick,
       progressClassName: parseClassName(options.progressClassName || props.progressClassName),
@@ -76610,31 +76611,42 @@ function useToastContainer(props) {
       autoClose: options.isLoading ? false : getAutoCloseDelay(options.autoClose, props.autoClose),
       hideProgressBar: isBool(options.hideProgressBar) ? options.hideProgressBar : props.hideProgressBar,
       progress: options.progress,
-      role: isStr(options.role) ? options.role : props.role,
+      role: options.role || props.role,
       deleteToast: function deleteToast() {
-        removeFromCollection(toastId);
+        toastToRender["delete"](toastId);
+        var queueLen = instance.queue.length;
+        instance.count = isToastIdValid(toastId) ? instance.count - 1 : instance.count - instance.displayedToast;
+        if (instance.count < 0) instance.count = 0;
+
+        if (queueLen > 0) {
+          var freeSlot = isToastIdValid(toastId) ? 1 : instance.props.limit;
+
+          if (queueLen === 1 || freeSlot === 1) {
+            instance.displayedToast++;
+            dequeueToast();
+          } else {
+            var toDequeue = freeSlot > queueLen ? queueLen : freeSlot;
+            instance.displayedToast = toDequeue;
+
+            for (var i = 0; i < toDequeue; i++) {
+              dequeueToast();
+            }
+          }
+        } else {
+          forceUpdate();
+        }
       }
     };
     if (isFn(options.onOpen)) toastProps.onOpen = options.onOpen;
-    if (isFn(options.onClose)) toastProps.onClose = options.onClose; //  tweak for vertical dragging
-
-    if (toastProps.draggableDirection === "y"
-    /* Y */
-    && toastProps.draggablePercent === 80
-    /* DRAGGABLE_PERCENT */
-    ) {
-        toastProps.draggablePercent *= 1.5;
-      }
-
-    var closeButton = props.closeButton;
+    if (isFn(options.onClose)) toastProps.onClose = options.onClose;
+    toastProps.closeButton = props.closeButton;
 
     if (options.closeButton === false || canBeRendered(options.closeButton)) {
-      closeButton = options.closeButton;
+      toastProps.closeButton = options.closeButton;
     } else if (options.closeButton === true) {
-      closeButton = canBeRendered(props.closeButton) ? props.closeButton : true;
+      toastProps.closeButton = canBeRendered(props.closeButton) ? props.closeButton : true;
     }
 
-    toastProps.closeButton = closeButton;
     var toastContent = content;
 
     if ((0,react__WEBPACK_IMPORTED_MODULE_0__.isValidElement)(content) && !isStr(content.type)) {
@@ -76652,8 +76664,8 @@ function useToastContainer(props) {
     } // not handling limit + delay by design. Waiting for user feedback first
 
 
-    if (props.limit && props.limit > 0 && toastCount > props.limit && isNotAnUpdate) {
-      queue.push({
+    if (props.limit && props.limit > 0 && instance.count > props.limit && isNotAnUpdate) {
+      instance.queue.push({
         toastContent: toastContent,
         toastProps: toastProps,
         staleId: staleId
@@ -76669,64 +76681,34 @@ function useToastContainer(props) {
 
   function appendToast(content, toastProps, staleId) {
     var toastId = toastProps.toastId;
-    if (staleId) delete collection[staleId];
-    collection[toastId] = {
+    if (staleId) toastToRender["delete"](staleId);
+    toastToRender.set(toastId, {
       content: content,
       props: toastProps
-    };
-    dispatch({
-      type: 0
-      /* ADD */
-      ,
-      toastId: toastId,
-      staleId: staleId
+    });
+    setToastIds(function (state) {
+      return [].concat(state, [toastId]).filter(function (id) {
+        return id !== staleId;
+      });
     });
   }
 
-  function removeFromCollection(toastId) {
-    delete collection[toastId];
-    var queueLen = queue.length;
-    toastCount = isToastIdValid(toastId) ? toastCount - 1 : toastCount - instance.displayedToast;
-    if (toastCount < 0) toastCount = 0;
-
-    if (queueLen > 0) {
-      var freeSlot = isToastIdValid(toastId) ? 1 : instance.props.limit;
-
-      if (queueLen === 1 || freeSlot === 1) {
-        instance.displayedToast++;
-        dequeueToast();
-      } else {
-        var toDequeue = freeSlot > queueLen ? queueLen : freeSlot;
-        instance.displayedToast = toDequeue;
-
-        for (var i = 0; i < toDequeue; i++) {
-          dequeueToast();
-        }
-      }
-    } else {
-      forceUpdate();
-    }
-  }
-
   function getToastToRender(cb) {
-    var toastToRender = {};
-    var toastList = props.newestOnTop ? Object.keys(collection).reverse() : Object.keys(collection);
-
-    for (var i = 0; i < toastList.length; i++) {
-      var _toast = collection[toastList[i]];
-      var position = _toast.props.position;
-      toastToRender[position] || (toastToRender[position] = []);
-      toastToRender[position].push(_toast);
-    }
-
-    return Object.keys(toastToRender).map(function (p) {
-      return cb(p, toastToRender[p]);
+    var toRender = new Map();
+    var collection = Array.from(toastToRender.values());
+    if (props.newestOnTop) collection.reverse();
+    collection.forEach(function (toast) {
+      var position = toast.props.position;
+      toRender.has(position) || toRender.set(position, []);
+      toRender.get(position).push(toast);
+    });
+    return Array.from(toRender, function (p) {
+      return cb(p[0], p[1]);
     });
   }
 
   return {
     getToastToRender: getToastToRender,
-    collection: collection,
     containerRef: containerRef,
     isToastActive: isToastActive
   };
@@ -76741,7 +76723,7 @@ function getY(e) {
 }
 
 function useToast(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       isRunning = _useState[0],
       setIsRunning = _useState[1];
 
@@ -76750,7 +76732,7 @@ function useToast(props) {
       setPreventExitTransition = _useState2[1];
 
   var toastRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var drag = useKeeper({
+  var drag = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
     start: 0,
     x: 0,
     y: 0,
@@ -76758,26 +76740,30 @@ function useToast(props) {
     removalDistance: 0,
     canCloseOnClick: true,
     canDrag: false,
-    boundingRect: null
-  });
-  var syncProps = useKeeper(props, true);
+    boundingRect: null,
+    didMove: false
+  }).current;
+  var syncProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(props);
   var autoClose = props.autoClose,
       pauseOnHover = props.pauseOnHover,
       closeToast = props.closeToast,
       onClick = props.onClick,
       closeOnClick = props.closeOnClick;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    syncProps.current = props;
+  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (toastRef.current) toastRef.current.addEventListener("d"
+    /* ENTRANCE_ANIMATION_END */
+    , playToast, {
+      once: true
+    });
     if (isFn(props.onOpen)) props.onOpen((0,react__WEBPACK_IMPORTED_MODULE_0__.isValidElement)(props.children) && props.children.props);
     return function () {
-      if (isFn(syncProps.onClose)) syncProps.onClose((0,react__WEBPACK_IMPORTED_MODULE_0__.isValidElement)(syncProps.children) && syncProps.children.props);
+      var props = syncProps.current;
+      if (isFn(props.onClose)) props.onClose((0,react__WEBPACK_IMPORTED_MODULE_0__.isValidElement)(props.children) && props.children.props);
     };
   }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    props.draggable && bindDragEvents();
-    return function () {
-      props.draggable && unbindDragEvents();
-    };
-  }, [props.draggable]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     props.pauseOnFocusLoss && bindFocusEvents();
     return function () {
@@ -76787,6 +76773,7 @@ function useToast(props) {
 
   function onDragStart(e) {
     if (props.draggable) {
+      bindDragEvents();
       var toast = toastRef.current;
       drag.canCloseOnClick = true;
       drag.canDrag = true;
@@ -76802,7 +76789,9 @@ function useToast(props) {
           drag.removalDistance = toast.offsetWidth * (props.draggablePercent / 100);
         } else {
         drag.start = drag.y;
-        drag.removalDistance = toast.offsetHeight * (props.draggablePercent / 100);
+        drag.removalDistance = toast.offsetHeight * (props.draggablePercent === 80
+        /* DRAGGABLE_PERCENT */
+        ? props.draggablePercent * 1.5 : props.draggablePercent / 100);
       }
     }
   }
@@ -76843,6 +76832,7 @@ function useToast(props) {
   }
 
   function bindDragEvents() {
+    drag.didMove = false;
     document.addEventListener('mousemove', onDragMove);
     document.addEventListener('mouseup', onDragEnd);
     document.addEventListener('touchmove', onDragMove);
@@ -76857,9 +76847,10 @@ function useToast(props) {
   }
 
   function onDragMove(e) {
-    if (drag.canDrag) {
-      e.preventDefault();
-      var toast = toastRef.current;
+    var toast = toastRef.current;
+
+    if (drag.canDrag && toast) {
+      drag.didMove = true;
       if (isRunning) pauseToast();
       drag.x = getX(e);
       drag.y = getY(e);
@@ -76880,9 +76871,10 @@ function useToast(props) {
   }
 
   function onDragEnd() {
+    unbindDragEvents();
     var toast = toastRef.current;
 
-    if (drag.canDrag) {
+    if (drag.canDrag && drag.didMove && toast) {
       drag.canDrag = false;
 
       if (Math.abs(drag.delta) > drag.removalDistance) {
@@ -77021,7 +77013,7 @@ var Svg = function Svg(_ref) {
       type = _ref.type,
       rest = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", Object.assign({
     viewBox: "0 0 24 24",
     width: "100%",
     height: "100%",
@@ -77030,31 +77022,31 @@ var Svg = function Svg(_ref) {
 };
 
 function Warning(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Svg, Object.assign({}, props), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Svg, Object.assign({}, props), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     d: "M23.32 17.191L15.438 2.184C14.728.833 13.416 0 11.996 0c-1.42 0-2.733.833-3.443 2.184L.533 17.448a4.744 4.744 0 000 4.368C1.243 23.167 2.555 24 3.975 24h16.05C22.22 24 24 22.044 24 19.632c0-.904-.251-1.746-.68-2.44zm-9.622 1.46c0 1.033-.724 1.823-1.698 1.823s-1.698-.79-1.698-1.822v-.043c0-1.028.724-1.822 1.698-1.822s1.698.79 1.698 1.822v.043zm.039-12.285l-.84 8.06c-.057.581-.408.943-.897.943-.49 0-.84-.367-.896-.942l-.84-8.065c-.057-.624.25-1.095.779-1.095h1.91c.528.005.84.476.784 1.1z"
   }));
 }
 
 function Info(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Svg, Object.assign({}, props), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Svg, Object.assign({}, props), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     d: "M12 0a12 12 0 1012 12A12.013 12.013 0 0012 0zm.25 5a1.5 1.5 0 11-1.5 1.5 1.5 1.5 0 011.5-1.5zm2.25 13.5h-4a1 1 0 010-2h.75a.25.25 0 00.25-.25v-4.5a.25.25 0 00-.25-.25h-.75a1 1 0 010-2h1a2 2 0 012 2v4.75a.25.25 0 00.25.25h.75a1 1 0 110 2z"
   }));
 }
 
 function Success(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Svg, Object.assign({}, props), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Svg, Object.assign({}, props), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     d: "M12 0a12 12 0 1012 12A12.014 12.014 0 0012 0zm6.927 8.2l-6.845 9.289a1.011 1.011 0 01-1.43.188l-4.888-3.908a1 1 0 111.25-1.562l4.076 3.261 6.227-8.451a1 1 0 111.61 1.183z"
   }));
 }
 
 function Error(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(Svg, Object.assign({}, props), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Svg, Object.assign({}, props), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     d: "M11.983 0a12.206 12.206 0 00-8.51 3.653A11.8 11.8 0 000 12.207 11.779 11.779 0 0011.8 24h.214A12.111 12.111 0 0024 11.791 11.766 11.766 0 0011.983 0zM10.5 16.542a1.476 1.476 0 011.449-1.53h.027a1.527 1.527 0 011.523 1.47 1.475 1.475 0 01-1.449 1.53h-.027a1.529 1.529 0 01-1.523-1.47zM11 12.5v-6a1 1 0 012 0v6a1 1 0 11-2 0z"
   }));
 }
 
 function Spinner() {
-  return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "Toastify"
     /* CSS_NAMESPACE */
     + "__spinner"
@@ -77283,7 +77275,7 @@ var ToastContainer = function ToastContainer(props) {
     ,
     id: containerId
   }, getToastToRender(function (position, toastList) {
-    var containerStyle = toastList.length === 0 ? _extends({}, style, {
+    var containerStyle = !toastList.length ? _extends({}, style, {
       pointerEvents: 'none'
     }) : _extends({}, style);
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -77330,16 +77322,8 @@ var containerConfig;
 var queue = [];
 var lazy = false;
 /**
- * Check whether any container is currently mounted in the DOM
- */
-
-function isAnyContainerMounted() {
-  return containers.size > 0;
-}
-/**
  * Get the toast by id, given it's in the DOM, otherwise returns null
  */
-
 
 function getToast(toastId, _ref) {
   var containerId = _ref.containerId;
@@ -77353,7 +77337,7 @@ function getToast(toastId, _ref) {
 
 
 function generateToastId() {
-  return Math.random().toString(36).substr(2, 9);
+  return Math.random().toString(36).substring(2, 9);
 }
 /**
  * Generate a toastId or use the one provided
@@ -77374,7 +77358,7 @@ function getToastId(options) {
 
 
 function dispatchToast(content, options) {
-  if (isAnyContainerMounted()) {
+  if (containers.size > 0) {
     eventManager.emit(0
     /* Show */
     , content, options);
@@ -77406,15 +77390,15 @@ function mergeOptions(type, options) {
   });
 }
 
-var createToastByType = function createToastByType(type) {
+function createToastByType(type) {
   return function (content, options) {
     return dispatchToast(content, mergeOptions(type, options));
   };
-};
+}
 
-var toast = function toast(content, options) {
+function toast(content, options) {
   return dispatchToast(content, mergeOptions(TYPE.DEFAULT, options));
-};
+}
 
 toast.loading = function (content, options) {
   return dispatchToast(content, mergeOptions(TYPE.DEFAULT, _extends({
@@ -77445,6 +77429,13 @@ function handlePromise(promise, _ref2, options) {
   };
 
   var resolver = function resolver(type, input, result) {
+    // Remove the toast if the input has not been provided. This prevents the toast from hanging
+    // in the pending state if a success/error toast has not been provided.
+    if (input == null) {
+      toast.dismiss(id);
+      return;
+    }
+
     var baseParams = _extends({
       type: type
     }, resetParams, options, {
@@ -77468,9 +77459,9 @@ function handlePromise(promise, _ref2, options) {
   var p = isFn(promise) ? promise() : promise; //call the resolvers only when needed
 
   p.then(function (result) {
-    return success && resolver('success', success, result);
+    return resolver('success', success, result);
   })["catch"](function (err) {
-    return error && resolver('error', error, err);
+    return resolver('error', error, err);
   });
   return p;
 }
@@ -77583,6 +77574,7 @@ toast.onChange = function (callback) {
 };
 /**
  * Configure the ToastContainer when lazy mounted
+ * Prefer ToastContainer over this one
  */
 
 
@@ -83004,7 +82996,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 					installedChunks[chunkId][0]();
 /******/ 				}
-/******/ 				installedChunks[chunkIds[i]] = 0;
+/******/ 				installedChunks[chunkId] = 0;
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
