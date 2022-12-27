@@ -17,7 +17,6 @@ database use sqlite
 
 ```bash
 $ cp .env.example .env
-$ touch database/database.sqlite # if you use .env.example with default sqlite database
 $ composer install
 $ php artisan migrate
 $ php artisan serve
