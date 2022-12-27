@@ -17,23 +17,18 @@ database use sqlite
 
 ```bash
 $ cp .env.example .env
+$ touch database/database.sqlite # if you use .env.example with default sqlite database
 $ composer install
-$ npm install
-$ npm run dev # optional only if any changes you make in resource/js
 $ php artisan migrate
 $ php artisan serve
+$ npm install
+$ npm run dev # compiling asset for development
 ```
 
-## Compile Assets
+## Compile Assets ( to prod )
 
 ```bash
-$ npm run dev
-```
-
-or
-
-```bash
-$ npm run watch
+$ npm run build
 ```
 
 ## Screenshot
