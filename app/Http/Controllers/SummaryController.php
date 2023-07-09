@@ -7,6 +7,7 @@ use App\Exports\SummaryExport;
 use App\Models\Transaction;
 use App\Models\Budget;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SummaryController extends Controller
 {
@@ -22,7 +23,9 @@ class SummaryController extends Controller
 
     public function close(Request $request)
     {
-        $content = (new SummaryExport)->download('summary.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        $export = (new SummaryExport);
+        Excel::store($export, now()->format('dmY') . '.xlsx');
+        $content = $export->download('summary.xlsx', \Maatwebsite\Excel\Excel::XLSX);
 
         DB::beginTransaction();
 
